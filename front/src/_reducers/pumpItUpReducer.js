@@ -14,6 +14,8 @@ const pumpItUpReducer = (previousState = initialState, action) => {
         score: action.pumpItUp.score + 5,
         maxScore: action.pumpItUp.score + 5 > action.pumpItUp.maxScore ? action.pumpItUp.score + 5 : action.pumpItUp.maxScore
       }
+    default:
+      return previousState
   }
 }
 
