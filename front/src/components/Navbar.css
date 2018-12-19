@@ -9,7 +9,11 @@
   border-radius: 50px 0 0 50px;
   line-height: 50px;
   transition: 0.3s;
+  text-decoration: none;
+  color: white;
 }
 .item_navbar:hover {
+  text-decoration: none;
+  color: white;
   width: 220px;
 }
