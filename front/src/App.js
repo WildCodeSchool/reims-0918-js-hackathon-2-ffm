@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <Container fluid className="App position-relative">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/tableau-de-jeux" component={Dashboard} />
         </Switch>
         <Footer />
       </Container>
