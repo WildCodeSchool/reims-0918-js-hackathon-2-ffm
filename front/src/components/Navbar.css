@@ -1,0 +1,15 @@
+.main_container_navbar {
+  position: absolute;
+  right: 0;
+}
+.item_navbar {
+  background-color: #ef914b;
+  width: 200px;
+  padding-left: 10px;
+  border-radius: 50px 0 0 50px;
+  line-height: 50px;
+  transition: 0.3s;
+}
+.item_navbar:hover {
+  width: 220px;
+}
