@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
 import data from "./data";
 import "./Dashboard.css";
 import { Grid } from "mauerwerk";

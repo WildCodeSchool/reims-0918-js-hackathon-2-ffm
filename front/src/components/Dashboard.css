@@ -67,3 +67,7 @@ body,
   margin: 0;
   padding-top: 15px;
 }
+
+.grid {
+  height: 100vh !important;
+}
