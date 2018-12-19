@@ -33,7 +33,9 @@ class Dashboard extends Component {
                   <p>{data.description}</p>
 
                   <div className="d-flex justify-content-center">
-                    <PlayButton />
+                    <Link to={data.link}>
+                      <PlayButton link={data.link} />
+                    </Link>
                   </div>
                 </div>
               )}
