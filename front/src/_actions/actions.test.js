@@ -1,5 +1,5 @@
-import { INFLATE_BALLOON, DEFLATE_BALLOON } from "./actionTypes"
-import { makeInflateBalloonAction, makeDeflateBalloonAction } from "./actions";
+import { INFLATE_BALLOON, DEFLATE_BALLOON, CHOOSE_CARD } from "./actionTypes"
+import { makeInflateBalloonAction, makeDeflateBalloonAction, makeChooseCardAction } from "./actions";
 
 describe("makeInflateBalloonAction", () => {
   it("should return a INFLATE_BALLON action", () => {
@@ -24,5 +24,19 @@ describe("makeDeflateBalloonAction", () => {
       pumpItUp
     }
     expect(makeDeflateBalloonAction(pumpItUp)).toEqual(expected)
+  })
+})
+
+
+describe("makeChooseCardAction", () => {
+  it("should return a CHOOSE_CARD action", () => {
+    const memory = {
+      score: 0
+    }
+    const expected = {
+      type: CHOOSE_CARD,
+      memory
+    }
+    expect(makeChooseCardAction(memory)).toEqual(expected)
   })
 })

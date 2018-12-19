@@ -1,2 +1,4 @@
 export const INFLATE_BALLOON = "INFLATE_BALLOON"
 export const DEFLATE_BALLOON = "DEFLATE_BALLOON"
+
+export const CHOOSE_CARD = "CHOOSE_CARD"
