@@ -15,7 +15,7 @@
 
 #REDUCERS
 
--inflateBalloonReducer
+-pumpItUpReducer
 ```javascript
   const initialState: 0
 ```

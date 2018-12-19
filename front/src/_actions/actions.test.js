@@ -1,21 +1,28 @@
-import { INFLATE_BALLOON } from "./actionTypes"
+import { INFLATE_BALLOON, DEFLATE_BALLOON } from "./actionTypes"
 import { makeInflateBalloonAction, makeDeflateBalloonAction } from "./actions";
 
 describe("makeInflateBalloonAction", () => {
   it("should return a INFLATE_BALLON action", () => {
-    const expected = {
-      type: INFLATE_BALLOON
+    const pumpItUp = {
+      score: 0
     }
-    expect(makeInflateBalloonAction()).ToEqual(expected)
+    const expected = {
+      type: INFLATE_BALLOON,
+      pumpItUp
+    }
+    expect(makeInflateBalloonAction(pumpItUp)).toEqual(expected)
   })
 })
 
 describe("makeDeflateBalloonAction", () => {
   it("should return a DEFLATE_BALLON action", () => {
+    const pumpItUp = {
+      score: 0
+    }
     const expected = {
       type: DEFLATE_BALLOON,
-      ou: "ere"
+      pumpItUp
     }
-    expect(makeDeflateBalloonAction()).ToEqual(expected)
+    expect(makeDeflateBalloonAction(pumpItUp)).toEqual(expected)
   })
 })
