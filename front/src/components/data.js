@@ -4,13 +4,16 @@ export default [
     description:
       "Pour faciliter la lecture du programme, le Centre Saint-Ex a mis en place des pictogrammes qui illustreront le type d'activités proposés",
     pictogrammes: [
-      { name: "bar" },
-      { name: "atelier" },
-      { name: "gouter" },
-      { name: "vacances" },
-      { name: "expo" },
-      { name: "fablab" },
-      { name: "exprimentation" }
+      { name: "bar", subName: "éphémère", icon: "bar" },
+      { subName: "atelier hebdomadaire", icon: "atelier" },
+      { name: "goûter", subName: "numérique", icon: "gouter" },
+      { name: "vacances", subName: "digitales", icon: "vacances" },
+      {
+        subName: "expérimentation numérique & virtuelle labomachine",
+        icon: "experimentation"
+      },
+      { name: "FabLab", subName: "artfabrique", icon: "fablab" },
+      { subName: "exposition", icon: "expo" }
     ],
     css: "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
     height: 400,

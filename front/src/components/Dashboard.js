@@ -8,6 +8,7 @@ import PlayButton from "./PlayButton";
 
 class Dashboard extends Component {
   render() {
+    console.log(document.location);
     return (
       <Row>
         <Grid
@@ -38,8 +39,18 @@ class Dashboard extends Component {
                   {data.pictogrammes && (
                     <Row>
                       {data.pictogrammes.map(picto => (
-                        <Col>
-                          <h3><span>{picto.icon}</span>{picto.name}</</h3>>
+                        <Col xs="2">
+                          <img
+                            alt={picto.name}
+                            src={
+                              process.env.PUBLIC_URL + `/img/${picto.icon}.svg`
+                            }
+                          />
+
+                          <h3>
+                            {picto.name && picto.name}{" "}
+                            {picto.subName && picto.subName}
+                          </h3>
                         </Col>
                       ))}
                     </Row>

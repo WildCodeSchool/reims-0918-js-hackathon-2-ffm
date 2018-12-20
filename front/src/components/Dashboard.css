@@ -87,3 +87,7 @@ body,
 .grid {
   height: calc(100vh - 50px) !important;
 }
+
+.details h3 {
+  color: rgba(0, 95, 130);
+}
