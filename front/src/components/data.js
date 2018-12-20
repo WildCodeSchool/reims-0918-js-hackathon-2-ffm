@@ -1,7 +1,17 @@
 export default [
   {
     name: "Memory",
-    description: "Un jeu de memory avec les icones de Saintex",
+    description:
+      "Pour faciliter la lecture du programme, le Centre Saint-Ex a mis en place des pictogrammes qui illustreront le type d'activités proposés",
+    pictogrammes: [
+      { name: "bar" },
+      { name: "atelier" },
+      { name: "gouter" },
+      { name: "vacances" },
+      { name: "expo" },
+      { name: "fablab" },
+      { name: "exprimentation" }
+    ],
     css: "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
     height: 400,
     link: "/"

@@ -6,32 +6,35 @@
 
 @font-face {
   font-family: "cobolregular";
-  src: url("the_northern_block_-_cobol-webfont.woff2") format("woff2"),
-    url("the_northern_block_-_cobol-webfont.woff") format("woff");
+  src: url("fonts/the_northern_block_-_cobol-webfont.woff2") format("woff2"),
+    url("fonts/the_northern_block_-_cobol-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "cobolbold";
-  src: url("the_northern_block_-_cobol-bold-webfont.woff2") format("woff2"),
-    url("the_northern_block_-_cobol-bold-webfont.woff") format("woff");
+  src: url("fonts/the_northern_block_-_cobol-bold-webfont.woff2")
+      format("woff2"),
+    url("fonts/the_northern_block_-_cobol-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "cobollight";
-  src: url("the_northern_block_-_cobol-light-webfont.woff2") format("woff2"),
-    url("the_northern_block_-_cobol-light-webfont.woff") format("woff");
+  src: url("fonts/the_northern_block_-_cobol-light-webfont.woff2")
+      format("woff2"),
+    url("fonts/the_northern_block_-_cobol-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "cobolmedium";
-  src: url("the_northern_block_-_cobol-medium-webfont.woff2") format("woff2"),
-    url("the_northern_block_-_cobol-medium-webfont.woff") format("woff");
+  src: url("fonts/the_northern_block_-_cobol-medium-webfont.woff2")
+      format("woff2"),
+    url("fonts/the_northern_block_-_cobol-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Button, Row } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import data from "./data";
 import "./Dashboard.css";
 import { Grid } from "mauerwerk";
@@ -29,9 +29,21 @@ class Dashboard extends Component {
             >
               {maximized && (
                 <div className="details">
-                  <h1>{data.name}</h1>
+                  <span className="title">
+                    <h1>
+                      <div>{data.name}</div>
+                    </h1>
+                  </span>
                   <p>{data.description}</p>
-
+                  {data.pictogrammes && (
+                    <Row>
+                      {data.pictogrammes.map(picto => (
+                        <Col>
+                          <h3><span>{picto.icon}</span>{picto.name}</</h3>>
+                        </Col>
+                      ))}
+                    </Row>
+                  )}
                   <div className="d-flex justify-content-center">
                     <Link to={data.link}>
                       <PlayButton link={data.link} />
