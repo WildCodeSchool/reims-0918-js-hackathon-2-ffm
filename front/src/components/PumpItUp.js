@@ -65,7 +65,7 @@ class PumpItUp extends Component {
     const countDown = this.state.sec;
     return (
       <div>
-        <h2>Balloon</h2>
+        <h2 className="activity-title">#Balloon</h2>
         <Row style={{ height: "50vh" }}>
           <Col
             xs={{ size: "10", offset: "1" }}
