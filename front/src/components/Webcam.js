@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./Webcam.css";
 import formatDate from "./formatDate";
 import Logo from "../img/logo-stex-web-black.svg";
-const { DateTime } = require("luxon");
 
 class WebcamGame extends React.Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class WebcamGame extends React.Component {
           Retour
         </Link>
         <p style={{ fontFamily: "cobolbold", paddingLeft: "20px" }}>
-          Pensez à bien vous centrer dans l'image :)
+          Pensez à bien vous centrer dans l'image
         </p>
         {this.state.screenshot === "init" ? (
           <div
@@ -64,41 +63,57 @@ class WebcamGame extends React.Component {
             </div>
           </div>
         ) : (
-          <div
-            style={{
-              margin: "0 auto",
-              display: "flex",
-              justifyContent: "center",
-              flexWrap: "wrap"
-            }}
-          >
-            <h2
+          <Fragment>
+            <div
               style={{
-                width: "100%",
-                textAlign: "center",
-                display: "block",
-                fontFamily: "cobolbold"
+                margin: "0 auto",
+                display: "flex",
+                justifyContent: "center",
+                flexWrap: "wrap"
               }}
             >
-              Votre photo
-            </h2>
-            <div
-              className="polaroid"
-              style={{ width: "250px", overflow: "hidden" }}
-            >
-              <img alt="screenshot" src={this.state.screenshot} />
-              <div
+              <h2
                 style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "center"
+                  width: "100%",
+                  textAlign: "center",
+                  display: "block",
+                  fontFamily: "cobolbold"
                 }}
               >
-                <h3>{this.state.date}</h3>
-                <img className="logo" src={Logo} alt="logo" />
+                Votre photo
+              </h2>
+              <div
+                className="polaroid"
+                style={{ width: "250px", overflow: "hidden" }}
+              >
+                <img alt="screenshot" src={this.state.screenshot} />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center"
+                  }}
+                >
+                  <h3>{this.state.date}</h3>
+                  <img className="logo" src={Logo} alt="logo" />
+                </div>
               </div>
             </div>
-          </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                className="back-button polaroid-final"
+                onClick={this.capture}
+              >
+                Beurk !
+              </button>
+              <button
+                className="back-button polaroid-final"
+                onClick={this.capture}
+              >
+                Sauvegarder
+              </button>
+            </div>
+          </Fragment>
         )}
       </Fragment>
     );
