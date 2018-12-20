@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
-import { applyMiddleWare, compose, createStore, combineReducers } from "redux"
+import { createStore, combineReducers } from "redux";
 import * as serviceWorker from "./serviceWorker";
 
 import { Provider } from "react-redux"
@@ -21,14 +21,16 @@ const rootReducer = combineReducers({
 const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+);
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <App />
     </Provider>
-  </BrowserRouter>, document.getElementById("root"));
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

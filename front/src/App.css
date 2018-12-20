@@ -2,5 +2,72 @@
   min-height: 100vh;
   background-color: #005f82;
   color: white;
-  padding-top: 50px;
+  background-position: bottom;
+  background-image: url("img/pattern.svg");
+  background-repeat: repeat-x;
+}
+
+@font-face {
+  font-family: "cobolregular";
+  src: url("fonts/the_northern_block_-_cobol-webfont.woff2") format("woff2"),
+    url("fonts/the_northern_block_-_cobol-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "cobolbold";
+  src: url("fonts/the_northern_block_-_cobol-bold-webfont.woff2")
+      format("woff2"),
+    url("fonts/the_northern_block_-_cobol-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "cobollight";
+  src: url("fonts/the_northern_block_-_cobol-light-webfont.woff2")
+      format("woff2"),
+    url("fonts/the_northern_block_-_cobol-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "cobolmedium";
+  src: url("fonts/the_northern_block_-_cobol-medium-webfont.woff2")
+      format("woff2"),
+    url("fonts/the_northern_block_-_cobol-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.activity-title {
+  font-family: "cobolbold";
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 40px;
+}
+
+.back-button {
+  display: inline-block;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  margin: 20px 30px;
+  padding: 5px 20px;
+  background: rgba(0, 95, 130);
+  transition: background-color 0.3s linear;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "cobolbold";
+  border: 1px solid #fff;
+}
+.back-button:hover {
+  background: #fff;
+  color: #ef914b;
+  text-decoration: none;
 }

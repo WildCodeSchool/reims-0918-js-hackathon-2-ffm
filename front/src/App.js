@@ -8,6 +8,9 @@ import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Memory from "./components/memory/Memory";
+import PumpItUp from "./components/PumpItUp";
+import FindWords from "./components/FindWords";
 
 class App extends Component {
   render() {
@@ -15,9 +18,13 @@ class App extends Component {
       <Container fluid className="App position-relative">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/tableau-de-jeux" component={Dashboard} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route path="/tableau-de-jeux" component={Dashboard} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/memory" component={Memory} />
+          <Route path="/tableau-de-jeux" component={Dashboard} />
+          <Route path="/jeu-pump-it-up" component={PumpItUp} />
+          <Route path="/jeu-trouver-saint-ex" component={FindWords} />
         </Switch>
         <Footer />
       </Container>

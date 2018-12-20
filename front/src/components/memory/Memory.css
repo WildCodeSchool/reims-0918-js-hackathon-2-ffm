@@ -1,0 +1,120 @@
+
+
+.grid-header-container {
+  background-color: #c9d1f5;
+  padding: 10px;
+}
+
+.justify-center {
+  text-align: center;
+}
+
+.timer {
+  color: #5168e9;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.restart-button {
+  width: 15em;
+  height: 3em;
+  color: white;
+  background-color: #5168e9;
+  border: 0;
+}
+
+.game-status-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(24, 21, 16);
+  font-weight: bold;
+}
+
+.card {
+  width: 190px;
+  height: 190px;
+  background-color: rgb(75, 42, 165);
+  color: white;
+  font-size: 15px;
+  overflow: hidden;
+}
+
+.hide-card {
+  visibility: hidden;
+}
+
+.card-front {
+  background-color: #EF914B;
+  transition: box-shadow 0.3s;
+  box-shadow: 0px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+.card-front:hover {
+  background-color: #EF914B;
+  box-shadow: 0px 15px 10px rgba(68, 68, 68, 0.4);
+}
+
+.card-back {
+  background-color: #FFF;
+  font-weight: bold;
+  box-shadow: 0px 5px 5px rgba(68, 68, 68, 0.6);
+ padding: 20px
+}
+
+.card-back-icn{
+  width: 140px;
+  height: 140px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain
+}
+
+.card-back:hover {
+  background-color: #FFF;
+}
+
+.react-card-front {
+  position: unset !important;
+}
+
+.react-card-flip{
+  margin: 10px;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active{
+  background:#EF914B;
+}
+
+@media screen and (max-width:992px){
+
+  .card {
+    width: 150px;
+    height: 150px;
+  }
+
+.card-back-icn{
+  width: 127px;
+  height: 127px;
+}
+
+.card-back {
+ padding: 10px;
+}
+
+  }
+
+  @media screen and (max-width:720px){
+  
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+
+.card-back-icn{
+  width: 87px;
+  height: 87px;
+}
+
+.card-back {
+  padding: 5px;
+ }
+  }

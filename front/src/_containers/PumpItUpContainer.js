@@ -1,12 +1,16 @@
 import { connect } from "react-redux";
-import PumpItUp from "../components/PumpItUp"
+import PumpItUp from "../components/PumpItUp";
+import { makeInflateBalloonAction } from "../_actions/actions";
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
+  pumpItUp: state.pumpItUp
+});
 
-}
+const mapDispatchToProps = dispatch => ({
+  inflateBalloon: score => dispatch(makeInflateBalloonAction(score))
+});
 
-const mapDispatchToProps = dispatch => {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PumpItUp)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PumpItUp);
