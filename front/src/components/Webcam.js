@@ -1,6 +1,10 @@
 import React, { Fragment } from "react";
 import Webcam from "react-webcam";
+import { Link } from "react-router-dom";
 import "./Webcam.css";
+import formatDate from "./formatDate";
+import Logo from "../img/logo-stex-web-black.svg";
+const { DateTime } = require("luxon");
 
 class WebcamGame extends React.Component {
   constructor(props) {
@@ -13,14 +17,18 @@ class WebcamGame extends React.Component {
 
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
-    const date = Date.now();
-    this.setState({ screenshot: imageSrc, date: date });
+    const newDate = formatDate(Date.now());
+    console.log(newDate);
+    this.setState({ screenshot: imageSrc, date: newDate });
   };
 
   render() {
     return (
       <Fragment>
         <h2 className="activity-title">#TakeAPicture!</h2>
+        <Link className="back-button" to="/tableau-de-jeux">
+          Retour
+        </Link>
         <p style={{ fontFamily: "cobolbold", paddingLeft: "20px" }}>
           Pensez à bien vous centrer dans l'image :)
         </p>
@@ -79,7 +87,16 @@ class WebcamGame extends React.Component {
               style={{ width: "250px", overflow: "hidden" }}
             >
               <img alt="screenshot" src={this.state.screenshot} />
-              <h3>{this.state.date}</h3>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center"
+                }}
+              >
+                <h3>{this.state.date}</h3>
+                <img className="logo" src={Logo} alt="logo" />
+              </div>
             </div>
           </div>
         )}
