@@ -1,0 +1,5 @@
+.balloon {
+  background-color: #ef914b;
+  border-radius: 50%;
+  transition: 0.3s;
+}

@@ -21,7 +21,6 @@ body,
   width: 100%;
   height: 100%;
   color: #777777;
-  text-transform: uppercase;
   font-size: 10px;
 }
 
@@ -30,9 +29,12 @@ body,
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   padding: 20px;
+  font-family: "cobolbold";
+  font-size: 50px;
+  color: #ef914b;
 }
 
 .details {
@@ -47,27 +49,60 @@ body,
   font-weight: 100;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
 }
 
-.details h1 {
-  color: #ca6a9a;
+.details .title h1 {
+  color: #ef914b;
   font-size: 36px;
   line-height: 36px;
   font-weight: 600;
   margin: 0;
   padding: 0;
-  max-width: 250px;
+  font-family: "cobolbold";
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.details .title h1 > div::after {
+  content: "";
+  width: 105%;
+  display: block;
+  position: absolute;
+  left: -10px;
+  border-right: 2px solid #ef914b;
+  border-top: 2px solid #ef914b;
+  height: 20px;
+  transform: skew(-50deg);
 }
 
 .details p {
-  color: thistle;
+  color: #ef914b;
   font-size: 26px;
   line-height: 26px;
   margin: 0;
   padding-top: 15px;
+  font-family: "cobolregular";
 }
 
 .grid {
-  height: 100vh !important;
+  height: calc(100vh - 50px) !important;
+}
+
+.details .picto-name {
+  color: rgba(0, 95, 130);
+  font-family: "cobolregular";
+  align-items: center;
+  font-size: 18px;
+  height: auto;
+}
+
+.details .rules {
+  color: #ef914b;
+  font-family: "cobolbold";
+  margin-bottom: 0;
+  margin-top: 30px;
+  font-size: 32px;
 }

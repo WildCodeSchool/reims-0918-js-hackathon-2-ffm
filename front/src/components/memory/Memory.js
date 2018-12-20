@@ -58,12 +58,12 @@ class Memory extends PureComponent {
 
   isCardMatch = (card1, card2, card1Id, card2Id) => {
     if (card1 === card2) {
-      const hideCard = this.state.shuffleCard.slice();
-      hideCard[card1Id] = -1
-      hideCard[card2Id] = -1
+      // const hideCard = this.state.shuffleCard.slice();
+      // hideCard[card1Id] = -1
+      // hideCard[card2Id] = -1
       setTimeout(() => {
         this.setState(prevState => ({
-          shuffleCard: hideCard,
+          // shuffleCard: hideCard,
           clickable: true
         }))
       }, 1300)
@@ -103,6 +103,7 @@ class Memory extends PureComponent {
               this.state.shuffleCard.map((cardNumber, index) =>
                 <Card
                   id={index}
+                  key={index}
                   cardNumber={cardNumber}
                   isFlipped={this.state.isFlipped[index]}
                   handleClick={this.handleClick}

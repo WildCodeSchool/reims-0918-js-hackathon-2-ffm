@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Memory from "./components/memory/Memory";
+import PumpItUp from "./components/PumpItUp";
 
 class App extends Component {
   render() {
@@ -14,8 +15,9 @@ class App extends Component {
       <Container fluid className="App position-relative">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/tableau-de-jeux" component={Dashboard} />
-          <Route exact path="/memory" component={Memory} />
+          <Route path="/memory" component={Memory} />
+          <Route path="/tableau-de-jeux" component={Dashboard} />
+          <Route path="/jeu-pump-it-up" component={PumpItUp} />
         </Switch>
         <Footer />
       </Container>
