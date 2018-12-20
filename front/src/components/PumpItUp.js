@@ -1,7 +1,17 @@
 import React, { Component } from "react";
-import { Button, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import "./PumpItUp.css";
 import logoSaintEx from "../img/logo-stex-web.svg";
+import balloon from "../img/balloon.png";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+import "./RedButton.scss";
+import { Link } from "react-router-dom";
+
+library.add(faClock);
+
 class PumpItUp extends Component {
   constructor(props) {
     super(props);
@@ -65,7 +75,10 @@ class PumpItUp extends Component {
     const countDown = this.state.sec;
     return (
       <div>
-        <h2>Balloon</h2>
+        <h2 className="activity-title">#PumpItUp!</h2>
+        <Link className="back-button" to="/tableau-de-jeux">
+          Retour
+        </Link>
         <Row style={{ height: "50vh" }}>
           <Col
             xs={{ size: "10", offset: "1" }}
@@ -76,12 +89,15 @@ class PumpItUp extends Component {
             <div
               className="balloon m-auto p-2 d-flex justify-content-center"
               style={{
-                width: `${pumpItUp.score * 2}px`,
-                height: `${pumpItUp.score * 2}px`
+                backgroundImage: `url(${balloon})`,
+                backgroundSize: "cover",
+                width: `${pumpItUp.score * 2.5}px`,
+                height: `${pumpItUp.score * 2.5}px`,
+                transition: "1.5s"
               }}
             >
               <img
-                className="img-fluid"
+                className="w-75 pb-3"
                 src={logoSaintEx}
                 alt="logo saint ex"
               />
@@ -94,9 +110,9 @@ class PumpItUp extends Component {
             sm={{ size: "8", offset: "2" }}
             md={{ size: "4", offset: "4" }}
           >
-            <div class="progress">
+            <div className="progress mb-3">
               <div
-                class="progress-bar"
+                className="progress-bar"
                 role="progressbar"
                 style={{
                   backgroundColor: "#EF914B",
@@ -107,7 +123,7 @@ class PumpItUp extends Component {
                 aria-valuemax="100"
               />
               <div
-                class="progress-bar"
+                className="progress-bar"
                 role="progressbar"
                 style={{
                   backgroundColor: "grey",
@@ -120,18 +136,25 @@ class PumpItUp extends Component {
             </div>
           </Col>
         </Row>
+
         <Row>
           <Col className="text-center">
             {pumpItUp.score < 100 ? (
               countDown !== 0 ? (
-                <Button onClick={() => this.inflateBalloon(pumpItUp)}>
-                  UP
-                </Button>
+                <button
+                  className="push--flat"
+                  onClick={() => this.inflateBalloon(pumpItUp)}
+                >
+                  Gonfler le ballon
+                </button>
               ) : (
-                <h2> Perdu</h2>
+                <h2 style={{ fontFamily: "cobolbold" }}> Perdu</h2>
               )
             ) : (
-              <h2>Gagné</h2>
+              <h2 style={{ fontFamily: "cobolbold" }}>
+                <i className="fas fa-trophy" /> Gagné{" "}
+                <i className="fas fa-trophy" />
+              </h2>
             )}
             {/* 
             <p>Mon score : {pumpItUp.score}</p>
@@ -145,7 +168,7 @@ class PumpItUp extends Component {
                 <strong>
                   Temps restant
                   <br />
-                  {countDown}
+                  <FontAwesomeIcon icon="clock" /> {countDown}''
                 </strong>
               </div>
             )}
