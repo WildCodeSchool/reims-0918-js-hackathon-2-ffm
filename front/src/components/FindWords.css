@@ -22,7 +22,6 @@
   border-bottom-right-radius: 8px;
   overflow: hidden;
   font-family: "cobolbold";
-  transition-delay: 1s;
 }
 .case_letter_find {
   background-color: #ef914b;

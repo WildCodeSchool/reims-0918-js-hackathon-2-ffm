@@ -50,32 +50,15 @@ export class FindWords extends Component {
         number_find: this.state.number_find + 1
       });
     } else if (letter_find === "i" && this.state.number_find === 1) {
-      const letter = { ...this.state.word };
-      letter["i"].find = true;
+      document.getElementById(`${index}`).classList.add("case_letter_find");
+      const letters = [...this.state.word];
+      let letter_modify = letters.filter(
+        letter => letter.letter === letter_find
+      );
+      letter_modify.find = true;
       this.setState({
-        word: letter,
-        number_find: this.state.number_find + 1
-      });
-    } else if (letter_find === "n" && this.state.number_find === 2) {
-      const letter = { ...this.state.word };
-      letter["i"].find = true;
-      this.setState({
-        word: letter,
-        number_find: this.state.number_find + 1
-      });
-    } else if (letter_find === "t" && this.state.number_find === 3) {
-      const letter = { ...this.state.word };
-      letter["i"].find = true;
-      this.setState({
-        word: letter,
-        number_find: this.state.number_find + 1
-      });
-    } else if (letter_find === "E" && this.state.number_find === 4) {
-      const letter = { ...this.state.word };
-      letter["i"].find = true;
-      this.setState({
-        word: letter,
-        number_find: this.state.number_find + 1
+        word: [...this.state.word, letter_modify],
+        number_find: 2
       });
     } else {
       this.setState({
