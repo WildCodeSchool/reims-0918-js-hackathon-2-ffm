@@ -70,7 +70,8 @@ class Dashboard extends Component {
                   {data.rules && (
                     <Fragment>
                       <h3 className="rules">
-                        <i class="fas fa-info-circle" />Règles du jeu
+                        <i className="fas fa-info-circle mr-2" />
+                        Règles du jeu
                       </h3>
                       <p>{data.rules}</p>
                     </Fragment>
