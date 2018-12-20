@@ -6,6 +6,8 @@ import { Switch, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
+import PumpItUp from "./components/PumpItUp";
+import FindWords from "./components/FindWords";
 
 class App extends Component {
   render() {
@@ -13,7 +15,9 @@ class App extends Component {
       <Container fluid className="App position-relative">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/tableau-de-jeux" component={Dashboard} />
+          <Route path="/tableau-de-jeux" component={Dashboard} />
+          <Route path="/jeu-pump-it-up" component={PumpItUp} />
+          <Route path="/jeu-trouver-saint-ex" component={FindWords} />
         </Switch>
         <Footer />
       </Container>
