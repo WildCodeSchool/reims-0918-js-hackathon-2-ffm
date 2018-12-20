@@ -17,8 +17,15 @@ class WebcamGame extends React.Component {
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
     const newDate = formatDate(Date.now());
-    console.log(newDate);
     this.setState({ screenshot: imageSrc, date: newDate });
+  };
+
+  reset = () => {
+    this.setState({ screenshot: "init", date: "" });
+  };
+
+  save = () => {
+    console.log("url", this.state.screenshot, "date", this.state.date);
   };
 
   render() {
@@ -102,13 +109,13 @@ class WebcamGame extends React.Component {
             <div style={{ display: "flex", justifyContent: "center" }}>
               <button
                 className="back-button polaroid-final"
-                onClick={this.capture}
+                onClick={this.reset}
               >
                 Beurk !
               </button>
               <button
                 className="back-button polaroid-final"
-                onClick={this.capture}
+                onClick={this.save}
               >
                 Sauvegarder
               </button>
