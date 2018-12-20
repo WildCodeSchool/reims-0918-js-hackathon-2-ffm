@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { Button, Row, Col } from "reactstrap";
 import "./PumpItUp.css";
 import logoSaintEx from "../img/logo-stex-web.svg";
+import balloon from "../img/balloon.png";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faClock);
+
 class PumpItUp extends Component {
   constructor(props) {
     super(props);
@@ -76,12 +84,14 @@ class PumpItUp extends Component {
             <div
               className="balloon m-auto p-2 d-flex justify-content-center"
               style={{
-                width: `${pumpItUp.score * 2}px`,
-                height: `${pumpItUp.score * 2}px`
+                backgroundImage: `url(${balloon})`,
+                backgroundSize: "cover",
+                width: `${pumpItUp.score * 2.5}px`,
+                height: `${pumpItUp.score * 2.5}px`
               }}
             >
               <img
-                className="img-fluid"
+                className="w-75 pb-3"
                 src={logoSaintEx}
                 alt="logo saint ex"
               />
@@ -94,9 +104,9 @@ class PumpItUp extends Component {
             sm={{ size: "8", offset: "2" }}
             md={{ size: "4", offset: "4" }}
           >
-            <div class="progress">
+            <div className="progress mb-3">
               <div
-                class="progress-bar"
+                className="progress-bar"
                 role="progressbar"
                 style={{
                   backgroundColor: "#EF914B",
@@ -107,7 +117,7 @@ class PumpItUp extends Component {
                 aria-valuemax="100"
               />
               <div
-                class="progress-bar"
+                className="progress-bar"
                 role="progressbar"
                 style={{
                   backgroundColor: "grey",
@@ -125,7 +135,7 @@ class PumpItUp extends Component {
             {pumpItUp.score < 100 ? (
               countDown !== 0 ? (
                 <Button onClick={() => this.inflateBalloon(pumpItUp)}>
-                  UP
+                  Gonfler le ballon
                 </Button>
               ) : (
                 <h2> Perdu</h2>
@@ -145,7 +155,7 @@ class PumpItUp extends Component {
                 <strong>
                   Temps restant
                   <br />
-                  {countDown}
+                  <FontAwesomeIcon icon="clock" /> {countDown}''
                 </strong>
               </div>
             )}
