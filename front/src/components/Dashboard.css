@@ -29,9 +29,12 @@ body,
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   padding: 20px;
+  font-family: "cobolbold";
+  font-size: 50px;
+  color: #ef914b;
 }
 
 .details {
@@ -88,6 +91,17 @@ body,
   height: calc(100vh - 50px) !important;
 }
 
-.details h3 {
+.details .picto-name {
   color: rgba(0, 95, 130);
+  font-family: "cobolregular";
+  align-items: center;
+  font-size: 18px;
+  height: auto;
+}
+
+.details .rules {
+  color: #ef914b;
+  font-family: "cobolbold";
+  margin-bottom: 0;
+  margin-top: 30px;
 }

@@ -32,8 +32,8 @@
   background: #ef914b;
 }
 
-span::before,
-span::after {
+.play-button span::before,
+.play-button span::after {
   content: "";
   width: 2px;
   height: 0;

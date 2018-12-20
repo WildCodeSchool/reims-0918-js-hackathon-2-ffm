@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import data from "./data";
@@ -37,23 +37,43 @@ class Dashboard extends Component {
                   </span>
                   <p>{data.description}</p>
                   {data.pictogrammes && (
-                    <Row>
+                    <Row
+                      className="d-flex mt-4 justify-content-between"
+                      style={{ width: "75%", margin: "0 auto" }}
+                    >
                       {data.pictogrammes.map(picto => (
-                        <Col xs="2">
-                          <img
-                            alt={picto.name}
-                            src={
-                              process.env.PUBLIC_URL + `/img/${picto.icon}.svg`
-                            }
-                          />
+                        <Col
+                          xs="4"
+                          className="d-flex ateliers align-middle  justify-content-start"
+                        >
+                          <div
+                            style={{ width: "80px" }}
+                            className="d-flex  justify-content-center"
+                          >
+                            <img
+                              style={{ maxHeight: "60px" }}
+                              alt={picto.name}
+                              src={
+                                process.env.PUBLIC_URL +
+                                `/img/${picto.icon}.svg`
+                              }
+                            />
+                          </div>
 
-                          <h3>
-                            {picto.name && picto.name}{" "}
-                            {picto.subName && picto.subName}
-                          </h3>
+                          <span className="picto-name mt-3">
+                            {picto.name && picto.name}
+                          </span>
                         </Col>
                       ))}
                     </Row>
+                  )}
+                  {data.rules && (
+                    <Fragment>
+                      <h3 className="rules">
+                        <i class="fas fa-info-circle" />Règles du jeu
+                      </h3>
+                      <p>{data.rules}</p>
+                    </Fragment>
                   )}
                   <div className="d-flex justify-content-center">
                     <Link to={data.link}>
@@ -62,7 +82,11 @@ class Dashboard extends Component {
                   </div>
                 </div>
               )}
-              {!maximized && <div className="default">{data.name}</div>}
+              {!maximized && (
+                <div className="default" style={{ textAlign: "center" }}>
+                  #{data.name}
+                </div>
+              )}
             </div>
           )}
         </Grid>

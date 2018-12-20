@@ -4,18 +4,21 @@ export default [
     description:
       "Pour faciliter la lecture du programme, le Centre Saint-Ex a mis en place des pictogrammes qui illustreront le type d'activités proposés",
     pictogrammes: [
-      { name: "bar", subName: "éphémère", icon: "bar" },
-      { subName: "atelier hebdomadaire", icon: "atelier" },
-      { name: "goûter", subName: "numérique", icon: "gouter" },
-      { name: "vacances", subName: "digitales", icon: "vacances" },
+      { name: "bar éphémère", icon: "bar" },
+      { name: "exposition", icon: "expo" },
+      { name: "atelier hebdomadaire", icon: "atelier" },
+
+      { name: "FabLab artfabrique", icon: "fablab" },
+      { name: "goûter numérique", icon: "gouter" },
+      { name: "vacances digitales", icon: "vacances" },
       {
-        subName: "expérimentation numérique & virtuelle labomachine",
+        name: "expérimentation numérique",
         icon: "experimentation"
-      },
-      { name: "FabLab", subName: "artfabrique", icon: "fablab" },
-      { subName: "exposition", icon: "expo" }
+      }
     ],
-    css: "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
+    rules:
+      "Sur la prochaine page, 14 cartes seront retournés. Le principe est de retrouver les paires de carte qui représente les icônes qui viennent d'être présentés",
+    css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
     height: 400,
     link: "/"
   },
