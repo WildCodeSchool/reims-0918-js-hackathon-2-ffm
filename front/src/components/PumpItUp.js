@@ -87,7 +87,8 @@ class PumpItUp extends Component {
                 backgroundImage: `url(${balloon})`,
                 backgroundSize: "cover",
                 width: `${pumpItUp.score * 2.5}px`,
-                height: `${pumpItUp.score * 2.5}px`
+                height: `${pumpItUp.score * 2.5}px`,
+                transition: "1.5s"
               }}
             >
               <img
