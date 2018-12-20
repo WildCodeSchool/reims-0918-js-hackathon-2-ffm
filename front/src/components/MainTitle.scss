@@ -1,0 +1,75 @@
+$colors: #fff, #fff, #fff, #fff, #fff;
+
+.text--line {
+  font-size: 0.5em;
+}
+
+.main-title {
+  width: 50%;
+  height: 65%;
+  font: 16em/1 Arial;
+  font-family: "cobolbold";
+  margin: 0 auto;
+}
+
+.main-title h3 {
+  padding-top: 10px;
+  text-transform: uppercase;
+  animation: slide 3s;
+  animation-iteration-count: 1;
+  text-align: center;
+  border-top: 1px solid #fff;
+}
+
+$max: 5;
+$stroke-step: 20%;
+.text-copy {
+  fill: #fff;
+  stroke: white;
+  stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
+  stroke-width: 3px;
+
+  animation: stroke-offset 3s;
+  animation-iteration-count: 1;
+
+  @for $item from 1 through $max {
+    $stroke-color: nth($colors, $item);
+
+    &:nth-child(#{$item}) {
+      stroke: $stroke-color;
+      stroke-dashoffset: $stroke-step * $item;
+    }
+  }
+}
+
+@keyframes stroke-offset {
+  0% {
+    stroke-dashoffset: $stroke-step * $max;
+    stroke-dasharray: 0 $stroke-step * $max * 2.5;
+    fill-opacity: 0;
+  }
+  75% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 100%;
+  }
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .main-title h3 {
+    border-top: none;
+  }
+}

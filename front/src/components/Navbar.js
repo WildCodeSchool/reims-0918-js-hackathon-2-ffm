@@ -5,18 +5,19 @@ import "./Navbar.css";
 
 export class Navbar extends Component {
   render() {
-    const menu = [
-      { name: "# Jouer", path: "/tableau-de-jeux" },
-      { name: "# Profil", path: "/profil" },
-      { name: "# Classement", path: "/classement" }
-    ];
     return (
       <div className="main_container_navbar d-flex flex-column align-items-end">
-        {menu.map((item, index) => (
-          <Link key={index} className="item_navbar my-3 py-1" to={item.path}>
-            {item.name}
-          </Link>
-        ))}
+        <Link className="item_navbar my-3 py-1" to="/tableau-de-jeux">
+          <i class="fas fa-gamepad" /> Jouer
+        </Link>
+
+        <Link className="item_navbar my-3 py-1" to="/profil">
+          <i class="fas fa-user" /> Profil
+        </Link>
+
+        <Link className="item_navbar my-3 py-1" to="/classement">
+          <i class="fas fa-trophy" /> Classement
+        </Link>
       </div>
     );
   }
