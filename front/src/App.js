@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import PumpItUpContainer from "./_containers/PumpItUpContainer";
+import Arcade from "./components/Arcade";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-pump-it-up" component={PumpItUpContainer} />
+          <Route path="/jeu-arcade" component={Arcade} />
         </Switch>
         <Footer />
       </Container>
