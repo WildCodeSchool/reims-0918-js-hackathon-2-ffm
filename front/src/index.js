@@ -9,11 +9,13 @@ import { applyMiddleWare, compose, createStore, combineReducers } from "redux"
 import * as serviceWorker from "./serviceWorker";
 
 import { Provider } from "react-redux"
+import { reducer as formReducer } from "redux-form"
 
 import pumpItUpReducer from "./_reducers/pumpItUpReducer";
 
 const rootReducer = combineReducers({
-  pumpItUp: pumpItUpReducer
+  pumpItUp: pumpItUpReducer,
+  form: formReducer
 })
 
 const store = createStore(

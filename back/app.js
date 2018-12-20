@@ -6,6 +6,10 @@ const port = 5000;
 const passport = require("passport");
 require("./passport-strategy");
 
+const cors = require("cors");
+
+app.use(cors());
+
 const jwt = require("jsonwebtoken");
 
 const bodyParser = require("body-parser");
