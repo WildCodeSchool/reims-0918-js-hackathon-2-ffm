@@ -1,9 +1,15 @@
-import React, { PureComponent } from "react"
+import React, { PureComponent, Fragment } from "react"
 import Card from "./card/Card"
 import GameOver from "./card/GameOver"
-import { Row } from "reactstrap"
+import { Row, Col } from "reactstrap"
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import "./Memory.css"
+
+library.add(faClock);
+
 
 class Memory extends PureComponent {
   constructor(props) {
@@ -14,7 +20,9 @@ class Memory extends PureComponent {
       clickCount: 1,
       prevSelectedCard: -1,
       prevCardId: -1,
-      clickable: true
+      clickable: true,
+      sec: 2,
+      started: false
     }
   }
 
@@ -26,6 +34,10 @@ class Memory extends PureComponent {
 
   handleClick = event => {
     event.preventDefault();
+    if (!this.state.started) {
+      this.countdown();
+      this.setState({ started: true });
+    }
     if (this.state.clickable) {
       const cardId = event.target.id;
       const newFlipps = this.state.isFlipped.slice();
@@ -85,18 +97,49 @@ class Memory extends PureComponent {
       shuffleCard: Memory.duplicateCard().sort(() => Math.random() - 0.5),
       clickCount: 1,
       prevSelectedCard: -1,
-      prevCardId: -1
+      prevCardId: -1,
+      sec: 60,
+      started: false
     })
   }
 
   isGameOver = () => {
     return this.state.isFlipped.every((element, index, array) => element !== false)
   }
+
+  countdown() {
+    this.interval = setInterval(() => {
+      const sec = this.calculateCountdown();
+      sec ? this.setState(sec) : this.stop();
+    }, 1000);
+  }
+
+  calculateCountdown() {
+    let diff = this.state.sec;
+    const timeLeft = {
+      sec: 0
+    };
+    diff -= 1;
+    timeLeft.sec = diff;
+    if (diff === 0) {
+      this.stop();
+    }
+    return timeLeft;
+  }
+
+  stop() {
+    clearInterval(this.interval);
+  }
+
   render() {
+    const countDown = this.state.sec;
     return (
       <div>
+        <Row>
+          <h2 className="activity-title">#Memory!</h2>
+        </Row>
 
-        {this.isGameOver() ? <GameOver restartGame={this.restartGame} /> :
+        {this.isGameOver() || this.state.sec === 0 ? <GameOver timeLeft={this.state.sec} restartGame={this.restartGame} /> :
           <Row className="d-flex justify-content-around">
             {
               this.state.shuffleCard.map((cardNumber, index) =>
@@ -110,6 +153,20 @@ class Memory extends PureComponent {
               )
             }
           </Row>}
+
+        <Row>
+          <Col className="text-center">
+            {countDown > 0 && (
+              <div>
+                <strong>
+                  Temps restant
+                  <br />
+                  <FontAwesomeIcon icon="clock" /> {countDown}''
+                </strong>
+              </div>
+            )}
+          </Col>
+        </Row>
 
       </div>
     )

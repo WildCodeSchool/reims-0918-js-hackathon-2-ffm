@@ -20,7 +20,7 @@ export default [
       "Sur la prochaine page, 14 cartes seront retournés. Le principe est de retrouver les paires de carte qui représente les icônes qui viennent d'être présentés.",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
     height: 400,
-    link: "/"
+    link: "/memory"
   },
   {
     name: "Pump it up",

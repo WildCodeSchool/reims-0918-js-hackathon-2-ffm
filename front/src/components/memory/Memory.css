@@ -61,8 +61,8 @@
 }
 
 .card-back-icn{
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 140px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain
@@ -78,6 +78,10 @@
 
 .react-card-flip{
   margin: 10px;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active{
+  background:#EF914B;
 }
 
 @media screen and (max-width:992px){
