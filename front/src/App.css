@@ -43,4 +43,28 @@
   font-family: "cobolbold";
   padding-top: 20px;
   padding-left: 20px;
+  font-size: 40px;
+}
+
+.back-button {
+  display: inline-block;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  margin: 20px 30px;
+  padding: 5px 20px;
+  background: rgba(0, 95, 130);
+  transition: background-color 0.3s linear;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "cobolbold";
+  border: 1px solid #fff;
+}
+.back-button:hover {
+  background: #fff;
+  color: #ef914b;
+  text-decoration: none;
 }

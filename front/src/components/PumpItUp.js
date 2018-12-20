@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import "./PumpItUp.css";
 import logoSaintEx from "../img/logo-stex-web.svg";
 import balloon from "../img/balloon.png";
@@ -7,6 +7,8 @@ import balloon from "../img/balloon.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+import "./RedButton.scss";
+import { Link } from "react-router-dom";
 
 library.add(faClock);
 
@@ -73,7 +75,10 @@ class PumpItUp extends Component {
     const countDown = this.state.sec;
     return (
       <div>
-        <h2 className="activity-title">#Balloon</h2>
+        <h2 className="activity-title">#PumpItUp!</h2>
+        <Link className="back-button" to="/tableau-de-jeux">
+          Retour
+        </Link>
         <Row style={{ height: "50vh" }}>
           <Col
             xs={{ size: "10", offset: "1" }}
@@ -131,18 +136,25 @@ class PumpItUp extends Component {
             </div>
           </Col>
         </Row>
+
         <Row>
           <Col className="text-center">
             {pumpItUp.score < 100 ? (
               countDown !== 0 ? (
-                <Button onClick={() => this.inflateBalloon(pumpItUp)}>
+                <button
+                  className="push--flat"
+                  onClick={() => this.inflateBalloon(pumpItUp)}
+                >
                   Gonfler le ballon
-                </Button>
+                </button>
               ) : (
-                <h2> Perdu</h2>
+                <h2 style={{ fontFamily: "cobolbold" }}> Perdu</h2>
               )
             ) : (
-              <h2>Gagné</h2>
+              <h2 style={{ fontFamily: "cobolbold" }}>
+                <i className="fas fa-trophy" /> Gagné{" "}
+                <i className="fas fa-trophy" />
+              </h2>
             )}
             {/* 
             <p>Mon score : {pumpItUp.score}</p>

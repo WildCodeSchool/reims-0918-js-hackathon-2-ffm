@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import data from "./data";
@@ -8,7 +8,6 @@ import PlayButton from "./PlayButton";
 
 class Dashboard extends Component {
   render() {
-    console.log(document.location);
     return (
       <Row>
         <Grid
@@ -38,18 +37,17 @@ class Dashboard extends Component {
                   <p>{data.description}</p>
                   {data.pictogrammes && (
                     <Row
-                      className="d-flex mt-4 justify-content-between"
-                      style={{ width: "75%", margin: "0 auto" }}
+                      className="d-flex d- mt-4 justify-content-between"
+                      style={{ width: "100%", margin: "0 auto" }}
                     >
-                      {data.pictogrammes.map(picto => (
+                      {data.pictogrammes.map((picto, index) => (
                         <Col
-                          xs="4"
-                          className="d-flex ateliers align-middle  justify-content-start"
+                          key={index}
+                          xs="6"
+                          sm="4"
+                          className=" text-center ateliers align-middle mt-2 justify-content-start"
                         >
-                          <div
-                            style={{ width: "80px" }}
-                            className="d-flex  justify-content-center"
-                          >
+                          <div className="d-flex justify-content-center">
                             <img
                               style={{ maxHeight: "60px" }}
                               alt={picto.name}
@@ -67,7 +65,7 @@ class Dashboard extends Component {
                       ))}
                     </Row>
                   )}
-                  {data.rules && (
+                  {/* {data.rules && (
                     <Fragment>
                       <h3 className="rules">
                         <i className="fas fa-info-circle mr-2" />
@@ -75,7 +73,7 @@ class Dashboard extends Component {
                       </h3>
                       <p>{data.rules}</p>
                     </Fragment>
-                  )}
+                  )} */}
                   <div className="d-flex justify-content-center">
                     <Link to={data.link}>
                       <PlayButton link={data.link} />
