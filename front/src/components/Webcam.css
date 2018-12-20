@@ -1,0 +1,8 @@
+.polaroid img {
+  filter: grayscale(1) sepia(0.5);
+}
+
+.polaroid {
+  background-color: #fff;
+  color: #000;
+}
