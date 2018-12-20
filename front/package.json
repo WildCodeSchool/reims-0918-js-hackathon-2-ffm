@@ -8,6 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.1.3",
     "bootstrap": "^4.1.3",
     "i": "^0.3.6",
+    "luxon": "^1.8.3",
     "mauerwerk": "^2.0.2",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
