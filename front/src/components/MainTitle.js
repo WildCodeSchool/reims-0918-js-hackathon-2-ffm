@@ -10,6 +10,7 @@ const MainTitle = () => {
         display: "flex",
         alignItems: "center"
       }}
+      className="pattern"
     >
       <div className="main-title">
         <svg viewBox="0 -170 700 300">

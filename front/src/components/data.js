@@ -31,5 +31,14 @@ export default [
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
     height: 400,
     link: "jeu-pump-it-up"
+  },
+  {
+    name: "Play with the Webcam",
+    description:
+      "A Saint-Ex vous pourrez immortaliser votre venue en vous prenant en photo avec un dispositif Raspberry Pi. Immortalisez à votre tour votre visite sur notre site :)",
+
+    css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+    height: 400,
+    link: "jeu-webcam"
   }
 ];
