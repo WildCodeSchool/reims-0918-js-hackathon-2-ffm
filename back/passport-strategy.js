@@ -12,23 +12,29 @@ passport.use(
       usernameField: "email",
       passwordField: "password"
     },
-    function (email, password, cb) {
+    function(email, password, cb) {
       connection.query(
-        `SELECT id, email, password FROM users WHERE email = ? AND password = ?`,
+        `SELECT id, email, password, username FROM users WHERE email = ? AND password = ?`,
         [email, password],
         (err, result) => {
-          let error = false
+          let error = false;
           if (!result[0]) {
-            error = true
+            error = true;
           } else {
             if (password !== result[0].password) {
-              error = true
+              error = true;
             }
           }
           if (error) {
-            return cb(null, false, { message: "Incorrect email or password. " });
+            return cb(null, false, {
+              message: "Incorrect email or password. "
+            });
           } else {
-            return cb(null, { email, username: result[0].username }, { message: "Logged In Successfully" });
+            return cb(
+              null,
+              { id: result[0].id, email, username: result[0].username },
+              { message: "Logged In Successfully" }
+            );
           }
         }
       );
@@ -42,7 +48,7 @@ passport.use(
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
       secretOrKey: "your_jwt_secret"
     },
-    function (jwtPayload, cb) {
+    function(jwtPayload, cb) {
       const user = jwtPayload;
       return cb(null, user);
     }
