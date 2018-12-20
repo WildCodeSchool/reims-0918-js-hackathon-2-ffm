@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
+import { Row, Col, Container } from "reactstrap";
+import MainTitle from "./MainTitle";
 
 export class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>
-          <h3 className="m-0">Saint-Ex Games</h3>
-        </div>
+        <MainTitle />
         <Navbar />
       </React.Fragment>
     );
