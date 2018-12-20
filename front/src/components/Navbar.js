@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Spring } from "react-spring";
-import { Row, Col } from "reactstrap";
 
 import "./Navbar.css";
 
