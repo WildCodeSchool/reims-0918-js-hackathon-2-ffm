@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react"
-import Header from "./header/Header"
 import Card from "./card/Card"
 import GameOver from "./card/GameOver"
 import { Row } from "reactstrap"
@@ -96,9 +95,9 @@ class Memory extends PureComponent {
   render() {
     return (
       <div>
-        <Header restartGame={this.restartGame} />
+
         {this.isGameOver() ? <GameOver restartGame={this.restartGame} /> :
-          <Row>
+          <Row className="d-flex justify-content-around">
             {
               this.state.shuffleCard.map((cardNumber, index) =>
                 <Card
