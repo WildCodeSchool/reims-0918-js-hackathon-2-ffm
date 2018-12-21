@@ -1,19 +1,18 @@
-import React, { PureComponent, Fragment } from "react"
-import Card from "./card/Card"
-import GameOver from "./card/GameOver"
-import { Row, Col } from "reactstrap"
+import React, { PureComponent } from "react";
+import Card from "./card/Card";
+import GameOver from "./card/GameOver";
+import { Row, Col } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
-import "./Memory.css"
+import "./Memory.css";
 
 library.add(faClock);
 
-
 class Memory extends PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isFlipped: Array(14).fill(false),
       shuffleCard: Memory.duplicateCard().sort(() => Math.random() - 0.5),
@@ -23,14 +22,14 @@ class Memory extends PureComponent {
       clickable: true,
       sec: 2,
       started: false
-    }
+    };
   }
 
   static duplicateCard = () => {
     return [0, 1, 2, 3, 4, 5, 6].reduce((preValue, current, index, array) => {
-      return preValue.concat([current, current])
-    }, [])
-  }
+      return preValue.concat([current, current]);
+    }, []);
+  };
 
   handleClick = event => {
     event.preventDefault();
@@ -44,13 +43,13 @@ class Memory extends PureComponent {
       this.setState({
         prevSelectedCard: this.state.shuffleCard[cardId],
         prevCardId: cardId
-      })
+      });
       if (newFlipps[cardId] === false) {
-        newFlipps[cardId] = !newFlipps[cardId]
+        newFlipps[cardId] = !newFlipps[cardId];
         this.setState(prevState => ({
           isFlipped: newFlipps,
           clickCount: this.state.clickCount + 1
-        }))
+        }));
 
         if (this.state.clickCount === 2) {
           this.setState({
@@ -58,14 +57,14 @@ class Memory extends PureComponent {
             clickable: false
           });
           const prevCardId = this.state.prevCardId;
-          const newCard = this.state.shuffleCard[cardId]
-          const previousCard = this.state.prevSelectedCard
+          const newCard = this.state.shuffleCard[cardId];
+          const previousCard = this.state.prevSelectedCard;
 
-          this.isCardMatch(previousCard, newCard, prevCardId, cardId)
+          this.isCardMatch(previousCard, newCard, prevCardId, cardId);
         }
       }
     }
-  }
+  };
 
   isCardMatch = (card1, card2, card1Id, card2Id) => {
     if (card1 === card2) {
@@ -76,20 +75,20 @@ class Memory extends PureComponent {
         this.setState(prevState => ({
           // shuffleCard: hideCard,
           clickable: true
-        }))
-      }, 1300)
+        }));
+      }, 1300);
     } else {
-      const flipBack = this.state.isFlipped.slice()
-      flipBack[card1Id] = false
-      flipBack[card2Id] = false
+      const flipBack = this.state.isFlipped.slice();
+      flipBack[card1Id] = false;
+      flipBack[card2Id] = false;
       setTimeout(() => {
         this.setState(prevState => ({
           isFlipped: flipBack,
           clickable: true
-        }))
-      }, 1300)
+        }));
+      }, 1300);
     }
-  }
+  };
 
   restartGame = () => {
     this.setState({
@@ -100,12 +99,14 @@ class Memory extends PureComponent {
       prevCardId: -1,
       sec: 60,
       started: false
-    })
-  }
+    });
+  };
 
   isGameOver = () => {
-    return this.state.isFlipped.every((element, index, array) => element !== false)
-  }
+    return this.state.isFlipped.every(
+      (element, index, array) => element !== false
+    );
+  };
 
   countdown() {
     this.interval = setInterval(() => {
@@ -139,20 +140,21 @@ class Memory extends PureComponent {
           <h2 className="activity-title">#Memory!</h2>
         </Row>
 
-        {this.isGameOver() || this.state.sec === 0 ? <GameOver timeLeft={this.state.sec} restartGame={this.restartGame} /> :
+        {this.isGameOver() || this.state.sec === 0 ? (
+          <GameOver timeLeft={this.state.sec} restartGame={this.restartGame} />
+        ) : (
           <Row className="d-flex justify-content-around">
-            {
-              this.state.shuffleCard.map((cardNumber, index) =>
-                <Card
-                  id={index}
-                  key={index}
-                  cardNumber={cardNumber}
-                  isFlipped={this.state.isFlipped[index]}
-                  handleClick={this.handleClick}
-                />
-              )
-            }
-          </Row>}
+            {this.state.shuffleCard.map((cardNumber, index) => (
+              <Card
+                id={index}
+                key={index}
+                cardNumber={cardNumber}
+                isFlipped={this.state.isFlipped[index]}
+                handleClick={this.handleClick}
+              />
+            ))}
+          </Row>
+        )}
 
         <Row>
           <Col className="text-center">
@@ -167,11 +169,9 @@ class Memory extends PureComponent {
             )}
           </Col>
         </Row>
-
       </div>
-    )
+    );
   }
 }
 
-
-export default Memory
+export default Memory;

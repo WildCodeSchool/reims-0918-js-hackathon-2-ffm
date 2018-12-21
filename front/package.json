@@ -23,6 +23,7 @@
     "react-webcam": "^1.0.4",
     "reactstrap": "^6.5.0",
     "redux": "^4.0.1",
+    "redux-form": "^8.0.4",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

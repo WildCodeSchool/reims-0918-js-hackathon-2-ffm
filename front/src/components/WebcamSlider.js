@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import screenshots from "./screenshots";
 import Logo from "../img/logo-stex-web-black.svg";
