@@ -81,16 +81,19 @@ export class FindWords extends Component {
         number_find: this.state.number_find + 1,
         win: true
       });
-      axios.put(
-        "/score",
-        { game_name: "findWord", score: 1 },
-        {
-          headers: {
-            accept: "application/json",
-            authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+
+      if (ls.get("jwt-saint-ex")) {
+        axios.put(
+          "/score",
+          { game_name: "findWord", score: 1 },
+          {
+            headers: {
+              accept: "application/json",
+              authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+            }
           }
-        }
-      );
+        );
+      }
     } else {
       this.setState({
         word: {

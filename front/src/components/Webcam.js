@@ -6,6 +6,7 @@ import formatDate from "./formatDate";
 import Logo from "../img/logo-stex-web-black.svg";
 import WebcamSlider from "./WebcamSlider";
 import axios from "axios";
+import { Spring } from "react-spring";
 
 class WebcamGame extends React.Component {
   constructor(props) {
@@ -53,10 +54,28 @@ class WebcamGame extends React.Component {
   render() {
     return (
       <Fragment>
-        <h2 className="activity-title">#TakeAPicture!</h2>
-        <Link className="back-button" to="/tableau-de-jeux">
-          Retour
-        </Link>
+        <Spring
+          from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+          to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+          config={{ delay: 200 }}
+        >
+          {props => (
+            <h2 style={props} className="activity-title">
+              #Smile!
+            </h2>
+          )}
+        </Spring>
+        <Spring
+          from={{ opacity: 0 }}
+          to={{ opacity: 1 }}
+          config={{ delay: 1200 }}
+        >
+          {props => (
+            <Link style={props} className="back-button" to="/tableau-de-jeux">
+              Retour
+            </Link>
+          )}
+        </Spring>
         {this.state.screenshot === "init" ? (
           <div
             style={{
@@ -83,9 +102,22 @@ class WebcamGame extends React.Component {
                 justifyContent: "center"
               }}
             >
-              <button className="back-button" onClick={this.capture}>
-                Capture
-              </button>
+              {" "}
+              <Spring
+                from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+                to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+                config={{ delay: 200 }}
+              >
+                {props => (
+                  <button
+                    style={props}
+                    className="back-button"
+                    onClick={this.capture}
+                  >
+                    Capture
+                  </button>
+                )}
+              </Spring>
             </div>
           </div>
         ) : (
@@ -141,6 +173,7 @@ class WebcamGame extends React.Component {
             </div>
           </Fragment>
         )}
+
         <WebcamSlider screenshots={this.state.screenshots} />
       </Fragment>
     );

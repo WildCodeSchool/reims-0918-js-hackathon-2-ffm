@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import Logo from "../img/logo-stex-web-black.svg";
+import { Spring } from "react-spring";
 
 const settings = {
   dots: true,
@@ -42,31 +43,41 @@ class WebcamSlider extends React.Component {
   render() {
     return (
       this.props.screenshots.length > 0 && (
-        <div
-          style={{
-            width: "100%",
-            overflow: "hidden",
-            paddingBottom: "80px"
-          }}
+        <Spring
+          from={{ opacity: 0, transform: "translate3d(0px,200px,0)" }}
+          to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+          config={{ delay: 400 }}
         >
-          <Slider {...settings}>
-            {this.props.screenshots.map((screenshot, index) => (
-              <div key={index} className="polaroid">
-                <img alt={screenshot.date} src={screenshot.url} />
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "center"
-                  }}
-                >
-                  <h3>{screenshot.date}</h3>
-                  <img className="logo" src={Logo} alt="logo" />
-                </div>
+          {props => (
+            <div style={props}>
+              <div
+                style={{
+                  width: "100%",
+                  overflow: "hidden",
+                  paddingBottom: "80px"
+                }}
+              >
+                <Slider {...settings}>
+                  {this.props.screenshots.map((screenshot, index) => (
+                    <div key={index} className="polaroid">
+                      <img alt={screenshot.date} src={screenshot.url} />
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-around",
+                          alignItems: "center"
+                        }}
+                      >
+                        <h3>{screenshot.date}</h3>
+                        <img className="logo" src={Logo} alt="logo" />
+                      </div>
+                    </div>
+                  ))}
+                </Slider>
               </div>
-            ))}
-          </Slider>
-        </div>
+            </div>
+          )}
+        </Spring>
       )
     );
   }

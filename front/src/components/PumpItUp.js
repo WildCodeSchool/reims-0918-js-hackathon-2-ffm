@@ -11,6 +11,7 @@ import "./RedButton.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ls from "local-storage";
+import { Spring } from "react-spring";
 
 library.add(faClock);
 
@@ -88,106 +89,127 @@ class PumpItUp extends Component {
     const pumpItUp = { score: this.state.score, maxScore: this.state.maxScore };
     const countDown = this.state.sec;
     return (
-      <div>
-        <h2 className="activity-title">#PumpItUp!</h2>
-        <Link className="back-button" to="/tableau-de-jeux">
-          Retour
-        </Link>
-        <Row style={{ height: "37vh" }}>
-          <Col
-            xs={{ size: "10", offset: "1" }}
-            sm={{ size: "8", offset: "2" }}
-            md={{ size: "6", offset: "3" }}
-            className="d-flex align-items-center"
-          >
-            <div
-              className="balloon m-auto p-2 d-flex justify-content-center"
-              style={{
-                backgroundImage: `url(${balloon})`,
-                backgroundSize: "cover",
-                width: `${pumpItUp.score * 2.5}px`,
-                height: `${pumpItUp.score * 2.5}px`,
-                transition: "1.5s"
-              }}
-            >
-              <img
-                className="w-75 pb-3"
-                src={logoSaintEx}
-                alt="logo saint ex"
-              />
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            xs={{ size: "10", offset: "1" }}
-            sm={{ size: "8", offset: "2" }}
-            md={{ size: "4", offset: "4" }}
-          >
-            <div className="progress mb-3">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{
-                  backgroundColor: "#EF914B",
-                  width: `${pumpItUp.score}%`
-                }}
-                aria-valuenow="15"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              />
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{
-                  backgroundColor: "grey",
-                  width: `${pumpItUp.maxScore - pumpItUp.score}%`
-                }}
-                aria-valuenow="30"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              />
-            </div>
-          </Col>
-        </Row>
+      <Spring
+        from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+        to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+        config={{ delay: 200 }}
+      >
+        {props => (
+          <div style={props}>
+            <h2 className="activity-title">#PumpItUp!</h2>
 
-        <Row>
-          <Col className="text-center">
-            {pumpItUp.score < 100 ? (
-              countDown !== 0 ? (
-                <button
-                  className="push--flat"
-                  onClick={() => this.inflateBalloon(pumpItUp)}
+            <Spring
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+              config={{ delay: 800 }}
+            >
+              {props => (
+                <Link
+                  style={props}
+                  className="back-button"
+                  to="/tableau-de-jeux"
                 >
-                  Gonfler le ballon
-                </button>
-              ) : (
-                <h2 style={{ fontFamily: "cobolbold" }}> Perdu</h2>
-              )
-            ) : (
-              <h2 style={{ fontFamily: "cobolbold" }}>
-                <i className="fas fa-trophy" /> Gagné{" "}
-                <i className="fas fa-trophy" />
-              </h2>
-            )}
-            {/* 
+                  Retour
+                </Link>
+              )}
+            </Spring>
+            <Row style={{ height: "37vh" }}>
+              <Col
+                xs={{ size: "10", offset: "1" }}
+                sm={{ size: "8", offset: "2" }}
+                md={{ size: "6", offset: "3" }}
+                className="d-flex align-items-center"
+              >
+                <div
+                  className="balloon m-auto p-2 d-flex justify-content-center"
+                  style={{
+                    backgroundImage: `url(${balloon})`,
+                    backgroundSize: "cover",
+                    width: `${pumpItUp.score * 2.5}px`,
+                    height: `${pumpItUp.score * 2.5}px`,
+                    transition: "1.5s"
+                  }}
+                >
+                  <img
+                    className="w-75 pb-3"
+                    src={logoSaintEx}
+                    alt="logo saint ex"
+                  />
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col
+                xs={{ size: "10", offset: "1" }}
+                sm={{ size: "8", offset: "2" }}
+                md={{ size: "4", offset: "4" }}
+              >
+                <div className="progress mb-3">
+                  <div
+                    className="progress-bar"
+                    role="progressbar"
+                    style={{
+                      backgroundColor: "#EF914B",
+                      width: `${pumpItUp.score}%`
+                    }}
+                    aria-valuenow="15"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  />
+                  <div
+                    className="progress-bar"
+                    role="progressbar"
+                    style={{
+                      backgroundColor: "grey",
+                      width: `${pumpItUp.maxScore - pumpItUp.score}%`
+                    }}
+                    aria-valuenow="30"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col className="text-center">
+                {pumpItUp.score < 100 ? (
+                  countDown !== 0 ? (
+                    <button
+                      className="push--flat"
+                      onClick={() => this.inflateBalloon(pumpItUp)}
+                    >
+                      Gonfler le ballon
+                    </button>
+                  ) : (
+                    <h2 style={{ fontFamily: "cobolbold" }}> Perdu</h2>
+                  )
+                ) : (
+                  <h2 style={{ fontFamily: "cobolbold" }}>
+                    <i className="fas fa-trophy" /> Gagné{" "}
+                    <i className="fas fa-trophy" />
+                  </h2>
+                )}
+                {/* 
             <p>Mon score : {pumpItUp.score}</p>
             <p>Mon score max : {pumpItUp.maxScore}</p> */}
-          </Col>
-        </Row>
-        <Row>
-          <Col className="text-center">
-            {countDown > 0 && (
-              <div>
-                <strong>
-                  Temps restant {"  "}
-                  <FontAwesomeIcon icon="clock" /> {countDown}''
-                </strong>
-              </div>
-            )}
-          </Col>
-        </Row>
-      </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="text-center">
+                {countDown > 0 && (
+                  <div>
+                    <strong>
+                      Temps restant {"  "}
+                      <FontAwesomeIcon icon="clock" /> {countDown}''
+                    </strong>
+                  </div>
+                )}
+              </Col>
+            </Row>
+          </div>
+        )}
+      </Spring>
     );
   }
 }
