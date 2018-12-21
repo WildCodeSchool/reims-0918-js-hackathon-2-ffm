@@ -107,6 +107,11 @@ body,
   margin-top: 30px;
   font-size: 32px;
 }
+@media screen and (max-width: 900px) {
+  .default {
+    font-size: 25px;
+  }
+}
 
 @media screen and (max-width: 780px) {
   .details p {

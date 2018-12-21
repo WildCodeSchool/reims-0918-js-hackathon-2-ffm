@@ -16,8 +16,6 @@ export default [
         icon: "experimentation"
       }
     ],
-    rules:
-      "Sur la prochaine page, 14 cartes seront retournés. Le principe est de retrouver les paires de carte qui représente les icônes qui viennent d'être présentés.",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
     height: 300,
     link: "/memory"
@@ -33,7 +31,7 @@ export default [
     link: "jeu-pump-it-up"
   },
   {
-    name: "PlayWithTheWebcam",
+    name: "Smile",
     description:
       "A Saint-Ex vous pourrez immortaliser votre venue en vous prenant en photo avec un dispositif Raspberry Pi. Immortalisez à votre tour votre visite sur notre site :)",
 
@@ -42,9 +40,10 @@ export default [
     link: "jeu-webcam"
   },
   {
-    name: "FindTheEscape",
+    name: "TheEscape",
     description: "Jeu d'arcade inspiré de la borne d'arcade du Labo Machine.",
-
+    rules:
+      "Mémorisez bien le parcours. Lorsque vous cliquez sur démarrer, la lumière s'éteint et vous devez vous diriger vers la sortie. Pour ce faire utilisez les boutons ou les flêches de votre clavier",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
     height: 300,
     link: "jeu-arcade"

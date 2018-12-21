@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import data from "./data";
@@ -65,7 +65,7 @@ class Dashboard extends Component {
                       ))}
                     </Row>
                   )}
-                  {/* {data.rules && (
+                  {data.rules && (
                     <Fragment>
                       <h3 className="rules">
                         <i className="fas fa-info-circle mr-2" />
@@ -73,7 +73,7 @@ class Dashboard extends Component {
                       </h3>
                       <p>{data.rules}</p>
                     </Fragment>
-                  )} */}
+                  )}
                   <div className="d-flex justify-content-center">
                     <Link to={data.link}>
                       <PlayButton link={data.link} />
