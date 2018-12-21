@@ -101,6 +101,15 @@ app.put(
   }
 );
 
+app.get("/classement", async (req, res) => {
+  const rawClassementUser = await bddQuery("SELECT * FROM users");
+  const response = rawClassementUser.results.map(user => ({
+    ...user,
+    total: user.memory + user.findWord + user.pumpItUp + user.arcade
+  }));
+  res.json(response);
+});
+
 app.listen(port, err => {
   if (err) {
     throw new Error("Something bad happened ...");

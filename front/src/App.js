@@ -6,7 +6,6 @@ import { Switch, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
-import PumpItUpContainer from "./_containers/PumpItUpContainer";
 import Arcade from "./components/Arcade";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
