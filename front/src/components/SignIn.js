@@ -4,12 +4,14 @@ import axios from "axios";
 import { Row, Col } from "reactstrap"
 import { Link } from "react-router-dom"
 import ls from "local-storage";
+import { withRouter } from "react-router-dom";
 
 class SignIn extends Component {
   submit = values => {
     axios.post("/signin", values).then(results => {
       if (results) {
         ls.set("jwt-saint-ex", results.data.token);
+        this.props.setFlashMessage(results.data.flashMessage);
         this.props.history.push("/");
       }
     });
@@ -33,4 +35,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

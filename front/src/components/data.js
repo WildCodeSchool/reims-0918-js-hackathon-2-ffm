@@ -18,7 +18,7 @@ export default [
     ],
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
     height: 300,
-    link: "/memory"
+    link: "jeu-memory"
   },
   {
     name: "PumpItUp",
