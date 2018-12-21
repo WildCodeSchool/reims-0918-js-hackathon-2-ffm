@@ -5,6 +5,8 @@ import { Row, Col } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import ls from "local-storage";
 
 import "./Memory.css";
 
@@ -20,9 +22,10 @@ class Memory extends PureComponent {
       prevSelectedCard: -1,
       prevCardId: -1,
       clickable: true,
-      sec: 2,
+      sec: 120,
       started: false
     };
+    this.stop = this.stop.bind(this);
   }
 
   static duplicateCard = () => {
@@ -130,6 +133,16 @@ class Memory extends PureComponent {
 
   stop() {
     clearInterval(this.interval);
+    axios.put(
+      "/score",
+      { game_name: "memory", score: `${this.state.sec}` },
+      {
+        headers: {
+          accept: "application/json",
+          authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+        }
+      }
+    );
   }
 
   render() {
@@ -141,7 +154,11 @@ class Memory extends PureComponent {
         </Row>
 
         {this.isGameOver() || this.state.sec === 0 ? (
-          <GameOver timeLeft={this.state.sec} restartGame={this.restartGame} />
+          <GameOver
+            stop={this.stop}
+            timeLeft={this.state.sec}
+            restartGame={this.restartGame}
+          />
         ) : (
           <Row className="d-flex justify-content-around">
             {this.state.shuffleCard.map((cardNumber, index) => (

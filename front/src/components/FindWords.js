@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Row, Col } from "reactstrap";
 import "./FindWords.css";
+import axios from "axios";
+import ls from "local-storage";
 
 export class FindWords extends Component {
   constructor(props) {
@@ -78,6 +80,16 @@ export class FindWords extends Component {
         number_find: this.state.number_find + 1,
         win: true
       });
+      axios.put(
+        "/score",
+        { game_name: "findWord", score: 1 },
+        {
+          headers: {
+            accept: "application/json",
+            authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+          }
+        }
+      );
     } else {
       this.setState({
         word: {

@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
+import Arcade from "./components/Arcade";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Memory from "./components/memory/Memory";
@@ -20,6 +21,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/tableau-de-jeux" component={Dashboard} />
+          <Route path="/jeu-arcade" component={Arcade} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/memory" component={Memory} />
