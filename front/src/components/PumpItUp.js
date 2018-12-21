@@ -48,16 +48,18 @@ class PumpItUp extends Component {
 
   stop() {
     clearInterval(this.interval);
-    axios.put(
-      "/score",
-      { game_name: "pumpItUp", score: `${this.state.sec}` },
-      {
-        headers: {
-          accept: "application/json",
-          authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+    if (ls.get("jwt-saint-ex")) {
+      axios.put(
+        "/score",
+        { game_name: "pumpItUp", score: `${this.state.sec}` },
+        {
+          headers: {
+            accept: "application/json",
+            authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   deflateBalloion() {

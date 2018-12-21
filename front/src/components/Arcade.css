@@ -3,6 +3,8 @@
 }
 .route {
   background: url("../img/dirt.jpg");
+
+  background-color: black;
 }
 .start {
   background-color: blue;

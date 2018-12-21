@@ -5,12 +5,24 @@ import "./Webcam.css";
 import formatDate from "./formatDate";
 import Logo from "../img/logo-stex-web-black.svg";
 import WebcamSlider from "./WebcamSlider";
+import axios from "axios";
 
 class WebcamGame extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { screenshot: "init", date: "" };
+    this.state = { screenshot: "init", date: "", screenshots: [] };
   }
+
+  componentDidMount() {
+    this.getScreenshots();
+  }
+
+  getScreenshots = () => {
+    axios.get("/webcam").then(res => {
+      this.setState({ screenshots: res.data.screenshots });
+    });
+  };
+
   setRef = webcam => {
     this.webcam = webcam;
   };
@@ -23,10 +35,19 @@ class WebcamGame extends React.Component {
 
   reset = () => {
     this.setState({ screenshot: "init", date: "" });
+    this.getScreenshots();
   };
 
   save = () => {
-    console.log("url", this.state.screenshot, "date", this.state.date);
+    axios.post(
+      "/webcam",
+      {
+        url: this.state.screenshot,
+        date: this.state.date
+      },
+      this.reset(),
+      this.getScreenshots()
+    );
   };
 
   render() {
@@ -118,9 +139,9 @@ class WebcamGame extends React.Component {
                 Sauvegarder
               </button>
             </div>
-            <WebcamSlider />
           </Fragment>
         )}
+        <WebcamSlider screenshots={this.state.screenshots} />
       </Fragment>
     );
   }
