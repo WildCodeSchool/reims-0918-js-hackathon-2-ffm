@@ -268,7 +268,10 @@ export class Arcade extends Component {
           {this.state.win && (
             <Row>
               <Col>
-                <p className="text-center">
+                <p
+                  className="text-center"
+                  style={{ fontFamily: "cobolbold", fontSize: "20px" }}
+                >
                   Félicitation vous avez gagné ! <br />
                   Votre score est de {this.state.sec}
                 </p>
@@ -288,6 +291,7 @@ export class Arcade extends Component {
                   >
                     {road.use === true && (
                       <FontAwesomeIcon
+                        className="icon-escape"
                         style={{ fontSize: "45px" }}
                         icon="running"
                       />
@@ -301,38 +305,65 @@ export class Arcade extends Component {
             {this.state.started ? (
               <Fragment>
                 <Col xs="4" className="text-center">
-                  <Button onClick={() => this.moveLeft()}>Left</Button>
+                  <button
+                    className="back-button"
+                    onClick={() => this.moveLeft()}
+                  >
+                    <i class="fas fa-long-arrow-alt-left" /> Left
+                  </button>
                 </Col>
                 <Col xs="4" className="text-center">
-                  <Button onClick={() => this.moveUp()}>Up</Button>
+                  <button className="back-button" onClick={() => this.moveUp()}>
+                    Up <i class="fas fa-long-arrow-alt-up" />
+                  </button>
                   <br />
-                  <Button onClick={() => this.moveDown()}>Down</Button>
+                  <button
+                    className="back-button"
+                    onClick={() => this.moveDown()}
+                  >
+                    Down <i class="fas fa-long-arrow-alt-down" />
+                  </button>
                 </Col>
                 <Col xs="4" className="text-center">
-                  <Button onClick={() => this.moveRight()}>Right</Button>
+                  <button
+                    className="back-button"
+                    onClick={() => this.moveRight()}
+                  >
+                    Right <i class="fas fa-long-arrow-alt-right" />
+                  </button>
                 </Col>
               </Fragment>
             ) : this.state.win ? (
               <Col xs="12" className="text-center">
-                <Button onClick={() => this.restartGame()}>Rejouer</Button>
+                <button
+                  className="back-button"
+                  onClick={() => this.restartGame()}
+                >
+                  Rejouer
+                </button>
               </Col>
             ) : (
               <Col xs="12" className="text-center">
-                <Button onClick={() => this.startGame()}>
+                <button
+                  className="back-button"
+                  onClick={() => this.startGame()}
+                >
                   Démarrer le jeu
-                </Button>
+                </button>
               </Col>
             )}
             <Col xs="12" className="text-center">
               {this.state.sec > 0 && (
-                <div>
+                <div style={{ fontFamily: "cobolbold" }}>
                   <strong>
                     Temps restant {"  "}
                     <FontAwesomeIcon icon="clock" /> {this.state.sec}''
                   </strong>
                 </div>
               )}
-              {this.state.sec === 0 && <p>Fin</p>}
+              {this.state.sec === 0 && (
+                <p style={{ fontFamily: "cobolbold" }}>Fin</p>
+              )}
             </Col>
           </Row>
         </Container>
