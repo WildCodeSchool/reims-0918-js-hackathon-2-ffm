@@ -37,7 +37,12 @@ app.post("/signup", function(req, res, next) {
       if (error) {
         res.status(500).json({ flash: error.message });
       }
-      res.status(200).json({ flash: "User has been signed up !" });
+      res.status(200).json({
+        flashMessage: {
+          message: "Vous êtes bien inscrit, identifiez vous.",
+          type: "success"
+        }
+      });
     }
   );
 });
@@ -60,6 +65,7 @@ app.put(
   "/score",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
+    console.log(req.body);
     const user = await bddQuery(
       "SELECT * FROM users WHERE id = ?",
       req.user.id
