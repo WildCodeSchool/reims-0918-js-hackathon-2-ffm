@@ -23,7 +23,7 @@ export default [
     link: "/"
   },
   {
-    name: "Pump it up",
+    name: "PumpItUp",
     description:
       "Au centre Saint-Ex vous pourrez trouver un dispositif où il vous faudra à l'aide d'une pompe à vélo, gonfler un ballon le plus vite que vous le pourrez.",
     rules:
@@ -33,7 +33,7 @@ export default [
     link: "jeu-pump-it-up"
   },
   {
-    name: "Play with the Webcam",
+    name: "PlayWithTheWebcam",
     description:
       "A Saint-Ex vous pourrez immortaliser votre venue en vous prenant en photo avec un dispositif Raspberry Pi. Immortalisez à votre tour votre visite sur notre site :)",
 
