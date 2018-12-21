@@ -13,8 +13,29 @@ import Memory from "./components/memory/Memory";
 import PumpItUp from "./components/PumpItUp";
 import FindWords from "./components/FindWords";
 import WebcamGame from "./components/Webcam";
+import FlashMessage from "./components/FlashMessage";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      flashMessage: {
+        open: true,
+        message: "",
+        type: ""
+      }
+    };
+    this.setFlashMessage = this.setFlashMessage.bind(this);
+    this.closeFlashMessage = this.closeFlashMessage.bind(this);
+  }
+
+  setFlashMessage = flashMessage => {
+    this.setState({ flashMessage: { ...flashMessage, open: true } });
+  };
+
+  closeFlashMessage = () => {
+    this.setState({ flashMessage: { message: "", type: "", open: false } });
+  };
   render() {
     return (
       <Container fluid className="App position-relative">
@@ -22,14 +43,27 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-arcade" component={Arcade} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
+          <Route
+            path="/signin"
+            render={() => <SignIn setFlashMessage={this.setFlashMessage} />}
+          />
+          <Route
+            path="/signup"
+            render={() => <SignUp setFlashMessage={this.setFlashMessage} />}
+          />
           <Route path="/memory" component={Memory} />
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-pump-it-up" component={PumpItUp} />
           <Route path="/jeu-trouver-saint-ex" component={FindWords} />
           <Route path="/jeu-webcam" component={WebcamGame} />
         </Switch>
+        {this.state.flashMessage.open && (
+          <FlashMessage
+            closeFlashMessage={this.closeFlashMessage}
+            flashMessage={this.state.flashMessage}
+          />
+        )}
+
         <Footer />
       </Container>
     );

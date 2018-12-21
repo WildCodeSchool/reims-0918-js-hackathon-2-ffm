@@ -1,0 +1,19 @@
+.flashMessage {
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  height: "50px";
+  position: "absolute";
+  z-index: 100;
+  bottom: 50px;
+  width: 100%;
+  margin: 0 -15px;
+}
+.fm_success {
+  background-color: green; /* Black background color */
+}
+.fm_error {
+  background-color: red; /* Black background color */
+}
