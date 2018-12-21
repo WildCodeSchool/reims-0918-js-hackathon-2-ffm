@@ -6,6 +6,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRunning, faClock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { Spring } from "react-spring";
 import "./Arcade.css";
 library.add(faRunning);
 
@@ -260,10 +261,28 @@ export class Arcade extends Component {
   render() {
     return (
       <div>
-        <h2 className="activity-title">#FindTheEscape!</h2>
-        <Link className="back-button" to="/tableau-de-jeux">
-          Retour
-        </Link>
+        <Spring
+          from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+          to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+          config={{ delay: 200 }}
+        >
+          {props => (
+            <h2 style={props} className="activity-title">
+              #TheEscape!
+            </h2>
+          )}
+        </Spring>
+        <Spring
+          from={{ opacity: 0 }}
+          to={{ opacity: 1 }}
+          config={{ delay: 1200 }}
+        >
+          {props => (
+            <Link style={props} className="back-button" to="/tableau-de-jeux">
+              Retour
+            </Link>
+          )}
+        </Spring>
         <Container fluid>
           {this.state.win && (
             <Row>
@@ -279,27 +298,39 @@ export class Arcade extends Component {
             </Row>
           )}
           <Row>
-            <Col className="d-flex justify-content-center" xs="12">
-              <Row style={{ maxWidth: "600px" }}>
-                {this.state.way_easy.map((road, index) => (
-                  <Col
-                    key={index}
-                    xs="2"
-                    className={`map ${
-                      this.state.started ? "onRunning" : [road.type]
-                    }`}
-                  >
-                    {road.use === true && (
-                      <FontAwesomeIcon
-                        className="icon-escape"
-                        style={{ fontSize: "45px" }}
-                        icon="running"
-                      />
-                    )}
-                  </Col>
-                ))}
-              </Row>{" "}
-            </Col>
+            <Spring
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+              config={{ delay: 1200 }}
+            >
+              {props => (
+                <Col
+                  style={props}
+                  className="d-flex justify-content-center"
+                  xs="12"
+                >
+                  <Row style={{ maxWidth: "600px" }}>
+                    {this.state.way_easy.map((road, index) => (
+                      <Col
+                        key={index}
+                        xs="2"
+                        className={`map ${
+                          this.state.started ? "onRunning" : [road.type]
+                        }`}
+                      >
+                        {road.use === true && (
+                          <FontAwesomeIcon
+                            className="icon-escape"
+                            style={{ fontSize: "45px" }}
+                            icon="running"
+                          />
+                        )}
+                      </Col>
+                    ))}
+                  </Row>
+                </Col>
+              )}
+            </Spring>
           </Row>
           <Row>
             {this.state.started ? (
@@ -344,27 +375,44 @@ export class Arcade extends Component {
               </Col>
             ) : (
               <Col xs="12" className="text-center">
-                <button
-                  className="back-button"
-                  onClick={() => this.startGame()}
+                <Spring
+                  from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+                  to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+                  config={{ delay: 200 }}
                 >
-                  Démarrer le jeu
-                </button>
+                  {props => (
+                    <button
+                      style={props}
+                      className="back-button"
+                      onClick={() => this.startGame()}
+                    >
+                      Démarrer le jeu
+                    </button>
+                  )}
+                </Spring>
               </Col>
             )}
-            <Col xs="12" className="text-center">
-              {this.state.sec > 0 && (
-                <div style={{ fontFamily: "cobolbold" }}>
-                  <strong>
-                    Temps restant {"  "}
-                    <FontAwesomeIcon icon="clock" /> {this.state.sec}''
-                  </strong>
-                </div>
+            <Spring
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+              config={{ delay: 1200 }}
+            >
+              {props => (
+                <Col style={props} xs="12" className="text-center">
+                  {this.state.sec > 0 && (
+                    <div style={{ fontFamily: "cobolbold" }}>
+                      <strong>
+                        Temps restant {"  "}
+                        <FontAwesomeIcon icon="clock" /> {this.state.sec}''
+                      </strong>
+                    </div>
+                  )}
+                  {this.state.sec === 0 && (
+                    <p style={{ fontFamily: "cobolbold" }}>Fin</p>
+                  )}
+                </Col>
               )}
-              {this.state.sec === 0 && (
-                <p style={{ fontFamily: "cobolbold" }}>Fin</p>
-              )}
-            </Col>
+            </Spring>
           </Row>
         </Container>
       </div>
