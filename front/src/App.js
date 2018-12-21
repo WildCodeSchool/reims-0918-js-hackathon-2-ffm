@@ -21,7 +21,7 @@ class App extends Component {
     super();
     this.state = {
       flashMessage: {
-        open: true,
+        open: false,
         message: "",
         type: ""
       }

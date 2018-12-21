@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import ls from "local-storage";
+import { Spring } from "react-spring";
 
 import "./Memory.css";
 
@@ -153,10 +154,28 @@ class Memory extends PureComponent {
     return (
       <div>
         <Row className="d-flex justify-content-between">
-          <h2 className="activity-title">#Memory!</h2>
-          <Link className="back-button" to="/tableau-de-jeux">
-            Retour
-          </Link>
+          <Spring
+            from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+            to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+            config={{ delay: 200 }}
+          >
+            {props => (
+              <h2 style={props} className="activity-title">
+                #Memory!
+              </h2>
+            )}
+          </Spring>
+          <Spring
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+            config={{ delay: 1200 }}
+          >
+            {props => (
+              <Link style={props} className="back-button" to="/tableau-de-jeux">
+                Retour
+              </Link>
+            )}
+          </Spring>
         </Row>
 
         {this.isGameOver() || this.state.sec === 0 ? (
@@ -166,29 +185,45 @@ class Memory extends PureComponent {
             restartGame={this.restartGame}
           />
         ) : (
-          <Row className="d-flex justify-content-around">
-            {this.state.shuffleCard.map((cardNumber, index) => (
-              <Card
-                id={index}
-                key={index}
-                cardNumber={cardNumber}
-                isFlipped={this.state.isFlipped[index]}
-                handleClick={this.handleClick}
-              />
-            ))}
-          </Row>
+          <Spring
+            from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+            to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+            config={{ delay: 800 }}
+          >
+            {props => (
+              <Row style={props} className="d-flex justify-content-around">
+                {this.state.shuffleCard.map((cardNumber, index) => (
+                  <Card
+                    id={index}
+                    key={index}
+                    cardNumber={cardNumber}
+                    isFlipped={this.state.isFlipped[index]}
+                    handleClick={this.handleClick}
+                  />
+                ))}
+              </Row>
+            )}
+          </Spring>
         )}
 
         <Row>
           <Col className="text-center">
             {countDown > 0 && (
-              <div>
-                <strong>
-                  Temps restant
-                  <br />
-                  <FontAwesomeIcon icon="clock" /> {countDown}''
-                </strong>
-              </div>
+              <Spring
+                from={{ opacity: 0 }}
+                to={{ opacity: 1 }}
+                config={{ delay: 1200 }}
+              >
+                {props => (
+                  <div style={props}>
+                    <strong style={{ fontFamily: "cobolregular" }}>
+                      Temps restant
+                      <br />
+                      <FontAwesomeIcon icon="clock" /> {countDown}''
+                    </strong>
+                  </div>
+                )}
+              </Spring>
             )}
           </Col>
         </Row>
