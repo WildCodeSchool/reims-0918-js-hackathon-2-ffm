@@ -4,7 +4,7 @@
   background: none;
   border: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 22px;
   cursor: pointer;
   margin: 20px 30px;
   width: 250px;
@@ -12,6 +12,7 @@
   transition: background-color 0.3s linear;
   text-transform: uppercase;
   font-weight: bold;
+  font-family: "cobolbold";
 }
 .play-button:hover {
   background: #fff;
@@ -19,7 +20,7 @@
 }
 .play-button span {
   display: block;
-  padding: 18px 50px;
+  padding: 12px 50px;
 }
 .play-button::before,
 .play-button::after {
@@ -31,8 +32,8 @@
   background: #ef914b;
 }
 
-span::before,
-span::after {
+.play-button span::before,
+.play-button span::after {
   content: "";
   width: 2px;
   height: 0;
@@ -119,7 +120,7 @@ span::after {
   -webkit-animation-name: hvr-buzz;
   animation-name: hvr-buzz;
   -webkit-animation-duration: 0.2s;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
