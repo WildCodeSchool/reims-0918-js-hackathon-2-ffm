@@ -34,7 +34,13 @@ export class Arcade extends Component {
         { index: 14, type: "route", use: false },
         { index: 15, type: "block", use: false },
         { index: 16, type: "route", use: false },
-        { index: 17, type: "end", use: false }
+        { index: 17, type: "end", use: false },
+        { index: 18, type: "route", use: false },
+        { index: 19, type: "block", use: false },
+        { index: 20, type: "route", use: false },
+        { index: 21, type: "block", use: false },
+        { index: 22, type: "route", use: false },
+        { index: 23, type: "block", use: false }
       ],
       way_normal: [
         { index: 0, type: "start", use: true },
@@ -316,7 +322,7 @@ export class Arcade extends Component {
                         xs="2"
                         className={`map ${
                           this.state.started ? "onRunning" : [road.type]
-                          }`}
+                        }`}
                       >
                         {road.use === true && (
                           <FontAwesomeIcon
@@ -374,24 +380,24 @@ export class Arcade extends Component {
                 </button>
               </Col>
             ) : (
-                  <Col xs="12" className="text-center">
-                    <Spring
-                      from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
-                      to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
-                      config={{ delay: 200 }}
+              <Col xs="12" className="text-center">
+                <Spring
+                  from={{ opacity: 0, transform: "translate3d(-100px,0,0)" }}
+                  to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+                  config={{ delay: 200 }}
+                >
+                  {props => (
+                    <button
+                      style={props}
+                      className="back-button"
+                      onClick={() => this.startGame()}
                     >
-                      {props => (
-                        <button
-                          style={props}
-                          className="back-button"
-                          onClick={() => this.startGame()}
-                        >
-                          Démarrer le jeu
+                      Démarrer le jeu
                     </button>
-                      )}
-                    </Spring>
-                  </Col>
-                )}
+                  )}
+                </Spring>
+              </Col>
+            )}
             <Spring
               from={{ opacity: 0 }}
               to={{ opacity: 1 }}

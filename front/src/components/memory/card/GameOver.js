@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Row } from "reactstrap";
-import { Link } from "react-router-dom";
 
 class GameOver extends Component {
   componentDidMount() {
@@ -13,7 +12,7 @@ class GameOver extends Component {
     return (
       <div>
         <Row className="justify-content-center">
-          {!timeLeft === 0 ? (
+          {!timeLeft > 1 ? (
             <h2 style={{ fontFamily: "cobolbold" }}>Bravo !</h2>
           ) : (
             <h2 style={{ fontFamily: "cobolbold" }}>Perdu !</h2>
@@ -21,9 +20,6 @@ class GameOver extends Component {
         </Row>
 
         <Row className="justify-content-center">
-          <Link className="back-button" to="/tableau-de-jeux">
-            Retour
-          </Link>
           <button className="back-button" onClick={restartGame}>
             Rejouer ?
           </button>

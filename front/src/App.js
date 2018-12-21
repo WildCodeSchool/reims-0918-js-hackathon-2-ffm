@@ -3,7 +3,6 @@ import "./App.css";
 import { Container } from "reactstrap";
 import { Switch, Route } from "react-router-dom";
 
-import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Arcade from "./components/Arcade";
@@ -65,8 +64,6 @@ class App extends Component {
             flashMessage={this.state.flashMessage}
           />
         )}
-
-        <Footer />
       </Container>
     );
   }

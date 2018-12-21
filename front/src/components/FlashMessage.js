@@ -15,8 +15,10 @@ export class FlashMessage extends Component {
   render() {
     return (
       <div className={`flashMessage fm_${this.props.flashMessage.type}`}>
-        <FontAwesomeIcon icon="info" />
-        <p>{this.props.flashMessage.message}</p>
+        <p>
+          <FontAwesomeIcon className="mr-2" icon="info" />
+          {this.props.flashMessage.message}
+        </p>
       </div>
     );
   }

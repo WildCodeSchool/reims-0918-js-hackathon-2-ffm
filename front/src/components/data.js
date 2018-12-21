@@ -17,7 +17,7 @@ export default [
       }
     ],
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 300,
+    height: 250,
     link: "jeu-memory"
   },
   {
@@ -27,7 +27,7 @@ export default [
     rules:
       "Ce jeu est basé sur le même principe, cliquez le plus rapidement possible sur le bouton pour gonfler le ballon sans qu'il retombe à son était initial.",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 300,
+    height: 250,
     link: "jeu-pump-it-up"
   },
   {
@@ -36,7 +36,7 @@ export default [
       "A Saint-Ex vous pourrez immortaliser votre venue en vous prenant en photo avec un dispositif Raspberry Pi. Immortalisez à votre tour votre visite sur notre site :)",
 
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 300,
+    height: 250,
     link: "jeu-webcam"
   },
   {
@@ -45,7 +45,7 @@ export default [
     rules:
       "Mémorisez bien le parcours. Lorsque vous cliquez sur démarrer, la lumière s'éteint et vous devez vous diriger vers la sortie. Pour ce faire utilisez les boutons ou les flêches de votre clavier",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 300,
+    height: 250,
     link: "jeu-arcade"
   }
 ];

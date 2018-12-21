@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Navbar as NavMenu } from "./Navbar";
 import MainTitle from "./MainTitle";
-import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler } from "reactstrap";
+import Footer from "./Footer";
 
 export class Home extends Component {
   constructor(props) {
@@ -11,7 +12,6 @@ export class Home extends Component {
     this.state = {
       collapsed: true
     };
-
   }
   toggleNavbar() {
     this.setState({
@@ -20,25 +20,26 @@ export class Home extends Component {
   }
 
   render() {
-
     return (
       <React.Fragment>
         <MainTitle />
         <Navbar expand="md" style={{ position: "initial", padding: 0 }}>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" style={{ position: "absolute", top: 10, right: 0 }}>
-            <i className="fas text-white fa-bars"></i>
+          <NavbarToggler
+            onClick={this.toggleNavbar}
+            className="mr-2"
+            style={{ position: "absolute", top: 10, right: 0 }}
+          >
+            <i className="fas text-white fa-bars" />
           </NavbarToggler>
           <Collapse isOpen={!this.state.collapsed} navbar>
             <NavMenu />
           </Collapse>
         </Navbar>
 
-
+        <Footer />
       </React.Fragment>
     );
   }
-
 }
-
 
 export default Home;

@@ -24,7 +24,7 @@ class Memory extends PureComponent {
       prevSelectedCard: -1,
       prevCardId: -1,
       clickable: true,
-      sec: 120,
+      sec: 45,
       started: false
     };
     this.stop = this.stop.bind(this);
