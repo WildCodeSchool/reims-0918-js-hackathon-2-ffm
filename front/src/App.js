@@ -11,6 +11,7 @@ import SignUp from "./components/SignUp";
 import Memory from "./components/memory/Memory";
 import PumpItUp from "./components/PumpItUp";
 import FindWords from "./components/FindWords";
+import WebcamGame from "./components/Webcam";
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-pump-it-up" component={PumpItUp} />
           <Route path="/jeu-trouver-saint-ex" component={FindWords} />
+          <Route path="/jeu-webcam" component={WebcamGame} />
         </Switch>
         <Footer />
       </Container>

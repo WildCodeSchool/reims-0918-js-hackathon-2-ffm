@@ -9,7 +9,7 @@ import PlayButton from "./PlayButton";
 class Dashboard extends Component {
   render() {
     return (
-      <Row>
+      <Row className="pattern">
         <Grid
           className="grid"
           // Arbitrary data, should contain keys, possibly heights, etc.
