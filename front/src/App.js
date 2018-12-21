@@ -23,8 +23,8 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-arcade" component={Arcade} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
+          <Route path="/connection" component={SignIn} />
+          <Route path="/inscription" component={SignUp} />
           <Route path="/memory" component={Memory} />
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-pump-it-up" component={PumpItUp} />

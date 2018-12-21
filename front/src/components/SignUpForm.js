@@ -1,27 +1,33 @@
 import React from "react"
 import { Field, reduxForm } from "redux-form"
+import("./Form.css")
+
 
 let SignUpForm = props => {
   const { handleSubmit } = props
   return <form onSubmit={handleSubmit}>
-    <div>
+
+    <div class="form-group">
       <label htmlFor="email">Email</label>
-      <Field name="email" component="input" type="email"></Field>
+      <Field name="email" class="form-control" component="input" type="email" aria-describedby="emailHelp" placeholder="nom@exemple.com"></Field>
     </div>
-    <div>
-      <label htmlFor="username">Username</label>
-      <Field name="username" component="input" type="text"></Field>
+    <div class="form-group">
+      <label htmlFor="email">Email</label>
+      <Field name="username" component="input" class="form-control" aria-describedby="pseudoHelp" placeholder="Pseudo" type="text"></Field>
     </div>
-    <div>
-      <label htmlFor="password">Password</label>
-      <Field name="password" component="input" type="password"></Field>
+    <div class="form-group">
+      <label htmlFor="password">Mot de passe</label>
+      <Field name="password" class="form-control" placeholder="Password" component="input" type="password"></Field>
     </div>
-    <div>
-      <label htmlFor="passwordVerif">Verify Password</label>
-      <Field name="passwordVerif" component="input" type="password"></Field>
+    <div class="form-group">
+      <label htmlFor="passwordVerif">Mot de passe</label>
+      <Field name="passwordVerif" class="form-control" placeholder="vérification du Password" component="input" type="password"></Field>
     </div>
-    <button type="submit">SignUp</button>
-  </form>
+    <div className="d-flex justify-content-center">
+      <button className="btn" type="submit">S'inscrire</button>
+    </div>
+
+  </form >
 }
 
 SignUpForm = reduxForm({

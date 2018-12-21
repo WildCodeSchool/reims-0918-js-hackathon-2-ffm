@@ -1,18 +1,23 @@
 import React from "react"
 import { Field, reduxForm } from "redux-form"
+import("./Form.css")
 
 let SignInForm = props => {
   const { handleSubmit } = props
   return <form onSubmit={handleSubmit}>
-    <div>
+
+
+    <div class="form-group">
       <label htmlFor="email">Email</label>
-      <Field name="email" component="input" type="email"></Field>
+      <Field name="email" class="form-control" component="input" type="email" aria-describedby="emailHelp" placeholder="nom@exemple.com"></Field>
     </div>
-    <div>
-      <label htmlFor="password">Password</label>
-      <Field name="password" component="input" type="password"></Field>
+    <div class="form-group">
+      <label htmlFor="password">Mot de passe</label>
+      <Field name="password" class="form-control" placeholder="Password" component="input" type="password"></Field>
     </div>
-    <button type="submit">SignIn</button>
+    <div className="d-flex justify-content-center">
+      <button className="btn" type="submit">Se Connecter</button>
+    </div>
   </form>
 }
 
