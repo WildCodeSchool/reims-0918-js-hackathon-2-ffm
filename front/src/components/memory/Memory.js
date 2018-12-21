@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import Card from "./card/Card";
 import GameOver from "./card/GameOver";
 import { Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
@@ -151,8 +152,11 @@ class Memory extends PureComponent {
     const countDown = this.state.sec;
     return (
       <div>
-        <Row>
+        <Row className="d-flex justify-content-between">
           <h2 className="activity-title">#Memory!</h2>
+          <Link className="back-button" to="/tableau-de-jeux">
+            Retour
+          </Link>
         </Row>
 
         {this.isGameOver() || this.state.sec === 0 ? (
