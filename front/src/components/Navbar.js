@@ -30,7 +30,7 @@ export class Navbar extends Component {
           {props => (
             <div style={props}>
               <Link className="item_navbar my-3 py-1" to="/connection">
-                <i className="fas fa-gamepad" /> Se connecter
+                <i className="fas fa-sign-in-alt"></i> Se connecter
               </Link>
             </div>
           )}
@@ -44,7 +44,7 @@ export class Navbar extends Component {
           {props => (
             <div style={props}>
               <Link className="item_navbar my-3 py-1" to="/inscription">
-                <i className="fas fa-gamepad" /> S'inscrire
+                <i className="fas fa-user-plus"></i> S'inscrire
               </Link>
             </div>
           )}
