@@ -133,6 +133,8 @@ app.post("/webcam", (req, res) => {
       }
     }
   );
+});
+
 app.get("/classement", async (req, res) => {
   const rawClassementUser = await bddQuery("SELECT * FROM users");
   const response = rawClassementUser.results.map(user => ({
