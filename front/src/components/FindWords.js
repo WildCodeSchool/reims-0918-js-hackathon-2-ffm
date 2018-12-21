@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Row, Col } from "reactstrap";
+import { Link } from "react-router-dom"
 import "./FindWords.css";
 import axios from "axios";
 import ls from "local-storage";
@@ -115,12 +116,12 @@ export class FindWords extends Component {
       });
       const currentLetter = letter[0]
         ? {
-            offset: Math.ceil(Math.random() * Math.floor(3)),
-            letter: letter[0].letter
-          }
+          offset: Math.ceil(Math.random() * Math.floor(3)),
+          letter: letter[0].letter
+        }
         : {
-            offset: Math.ceil(Math.random() * Math.floor(3))
-          };
+          offset: Math.ceil(Math.random() * Math.floor(3))
+        };
       this.case_letters = [...this.case_letters, currentLetter];
     }
     this.setState({
@@ -133,144 +134,148 @@ export class FindWords extends Component {
   render() {
     return (
       <div>
-        <h2>Find Words</h2>
+        <Row className="d-flex justify-content-between">
+          <h2 className="activity-title">#Find Words</h2>
+          <Link className="back-button" to="/">
+            Retour
+          </Link>
+        </Row>
         {this.state.win ? (
-          <div>
-            <h2>Bravo tu as recomposé Saint-Ex.</h2>
-          </div>
+          <h2>Bravo tu as recomposé Saint-Ex.</h2>
+
         ) : (
-          <Fragment>
-            {this.case_letters.length && (
-              <Row style={{ paddingRight: "10px" }}>
-                <Col xs="12" className="text-center">
-                  <h3>
-                    {Object.keys(this.state.word).map((letter, index) =>
-                      this.state.word[letter].find ? (
-                        <span key={index} style={{ color: "white" }}>
-                          {letter}
-                        </span>
-                      ) : (
-                        <span key={index} style={{ color: "black" }}>
-                          {letter}
-                        </span>
-                      )
-                    )}
-                  </h3>
-                </Col>
-                <Col xs="12" sm="6">
-                  <Row>
-                    {this.state.case_letters.first.map((letter, index) => (
-                      <Fragment key={index}>
-                        {letter.letter ? (
-                          !this.state.word[letter.letter].find ? (
-                            <Col
-                              xs={{ size: "2", offset: letter.offset }}
-                              className="case_letter"
-                              onClick={() =>
-                                this.find_letter(index, letter.letter)
-                              }
-                            >
-                              <div
-                                id={index}
-                                className={
-                                  this.state.word[letter.letter].find
-                                    ? "case_letter_find case_letter_filling text-center"
-                                    : "case_letter_filling text-center"
-                                }
-                              >
-                                <h2>{letter.letter ? letter.letter : ""}</h2>
-                              </div>
-                            </Col>
-                          ) : (
-                            <Col
-                              xs={{ size: "2", offset: letter.offset }}
-                              className="case_letter"
-                            >
-                              <div
-                                id={index}
-                                className={
-                                  this.state.word[letter.letter].find
-                                    ? "case_letter_find case_letter_filling text-center"
-                                    : "case_letter_filling text-center"
-                                }
-                              >
-                                <h2>{letter.letter ? letter.letter : ""}</h2>
-                              </div>
-                            </Col>
-                          )
+            <Fragment>
+              {this.case_letters.length && (
+                <Row style={{ paddingRight: "10px" }}>
+                  <Col xs="12" className="text-center">
+                    <h3>
+                      {Object.keys(this.state.word).map((letter, index) =>
+                        this.state.word[letter].find ? (
+                          <span key={index} style={{ color: "white" }}>
+                            {letter}
+                          </span>
                         ) : (
-                          <Col
-                            xs={{ size: "2", offset: letter.offset }}
-                            className="case_letter"
-                          >
-                            <div className="case_letter_filling text-center">
-                              <h2>{letter.letter ? letter.letter : ""}</h2>
-                            </div>
-                          </Col>
-                        )}
-                      </Fragment>
-                    ))}
-                  </Row>
-                </Col>
-                <Col xs="12" sm="6">
-                  <Row>
-                    {this.state.case_letters.second.map((letter, index) => (
-                      <Fragment key={index}>
-                        {letter.letter ? (
-                          !this.state.word[letter.letter].find ? (
-                            <Col
-                              xs={{ size: "2", offset: letter.offset }}
-                              className="case_letter"
-                              onClick={() =>
-                                this.find_letter(index, letter.letter)
-                              }
-                            >
-                              <div
-                                id={index}
-                                className={
-                                  this.state.word[letter.letter].find
-                                    ? "case_letter_find case_letter_filling text-center"
-                                    : "case_letter_filling text-center"
-                                }
-                              >
-                                <h2>{letter.letter ? letter.letter : ""}</h2>
-                              </div>
-                            </Col>
-                          ) : (
-                            <Col
-                              xs={{ size: "2", offset: letter.offset }}
-                              className="case_letter"
-                            >
-                              <div
-                                id={index}
-                                className={
-                                  this.state.word[letter.letter].find
-                                    ? "case_letter_find case_letter_filling text-center"
-                                    : "case_letter_filling text-center"
-                                }
-                              >
-                                <h2>{letter.letter ? letter.letter : ""}</h2>
-                              </div>
-                            </Col>
+                            <span key={index} style={{ color: "black" }}>
+                              {letter}
+                            </span>
                           )
-                        ) : (
-                          <Col
-                            xs={{ size: "2", offset: letter.offset }}
-                            className="case_letter"
-                          >
-                            <div className="case_letter_filling text-center">
-                              <h2>{letter.letter ? letter.letter : ""}</h2>
-                            </div>
-                          </Col>
-                        )}
-                      </Fragment>
-                    ))}
-                  </Row>
-                </Col>
-              </Row>
-            )}
-          </Fragment>
-        )}
+                      )}
+                    </h3>
+                  </Col>
+                  <Col xs="12" sm="6">
+                    <Row>
+                      {this.state.case_letters.first.map((letter, index) => (
+                        <Fragment key={index}>
+                          {letter.letter ? (
+                            !this.state.word[letter.letter].find ? (
+                              <Col
+                                xs={{ size: "2", offset: letter.offset }}
+                                className="case_letter"
+                                onClick={() =>
+                                  this.find_letter(index, letter.letter)
+                                }
+                              >
+                                <div
+                                  id={index}
+                                  className={
+                                    this.state.word[letter.letter].find
+                                      ? "case_letter_find case_letter_filling text-center"
+                                      : "case_letter_filling text-center"
+                                  }
+                                >
+                                  <h2>{letter.letter ? letter.letter : ""}</h2>
+                                </div>
+                              </Col>
+                            ) : (
+                                <Col
+                                  xs={{ size: "2", offset: letter.offset }}
+                                  className="case_letter"
+                                >
+                                  <div
+                                    id={index}
+                                    className={
+                                      this.state.word[letter.letter].find
+                                        ? "case_letter_find case_letter_filling text-center"
+                                        : "case_letter_filling text-center"
+                                    }
+                                  >
+                                    <h2>{letter.letter ? letter.letter : ""}</h2>
+                                  </div>
+                                </Col>
+                              )
+                          ) : (
+                              <Col
+                                xs={{ size: "2", offset: letter.offset }}
+                                className="case_letter"
+                              >
+                                <div className="case_letter_filling text-center">
+                                  <h2>{letter.letter ? letter.letter : ""}</h2>
+                                </div>
+                              </Col>
+                            )}
+                        </Fragment>
+                      ))}
+                    </Row>
+                  </Col>
+                  <Col xs="12" sm="6">
+                    <Row>
+                      {this.state.case_letters.second.map((letter, index) => (
+                        <Fragment key={index}>
+                          {letter.letter ? (
+                            !this.state.word[letter.letter].find ? (
+                              <Col
+                                xs={{ size: "2", offset: letter.offset }}
+                                className="case_letter"
+                                onClick={() =>
+                                  this.find_letter(index, letter.letter)
+                                }
+                              >
+                                <div
+                                  id={index}
+                                  className={
+                                    this.state.word[letter.letter].find
+                                      ? "case_letter_find case_letter_filling text-center"
+                                      : "case_letter_filling text-center"
+                                  }
+                                >
+                                  <h2>{letter.letter ? letter.letter : ""}</h2>
+                                </div>
+                              </Col>
+                            ) : (
+                                <Col
+                                  xs={{ size: "2", offset: letter.offset }}
+                                  className="case_letter"
+                                >
+                                  <div
+                                    id={index}
+                                    className={
+                                      this.state.word[letter.letter].find
+                                        ? "case_letter_find case_letter_filling text-center"
+                                        : "case_letter_filling text-center"
+                                    }
+                                  >
+                                    <h2>{letter.letter ? letter.letter : ""}</h2>
+                                  </div>
+                                </Col>
+                              )
+                          ) : (
+                              <Col
+                                xs={{ size: "2", offset: letter.offset }}
+                                className="case_letter"
+                              >
+                                <div className="case_letter_filling text-center">
+                                  <h2>{letter.letter ? letter.letter : ""}</h2>
+                                </div>
+                              </Col>
+                            )}
+                        </Fragment>
+                      ))}
+                    </Row>
+                  </Col>
+                </Row>
+              )}
+            </Fragment>
+          )}
       </div>
     );
   }

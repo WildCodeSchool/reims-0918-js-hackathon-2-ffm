@@ -29,7 +29,7 @@ export class Navbar extends Component {
         >
           {props => (
             <div style={props}>
-              <Link className="item_navbar my-3 py-1" to="/connection">
+              <Link className="item_navbar my-3 py-1" to="/connexion">
                 <i className="fas fa-sign-in-alt"></i> Se connecter
               </Link>
             </div>
@@ -50,23 +50,11 @@ export class Navbar extends Component {
           )}
         </Spring>
 
+
         <Spring
           from={{ opacity: 0, transform: "translate3d(100px,0,0)" }}
           to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
           config={{ delay: 3600 }}
-        >
-          {props => (
-            <div style={props}>
-              <Link className="item_navbar my-3 py-1" to="/profil">
-                <i className="fas fa-user" /> Profil
-              </Link>
-            </div>
-          )}
-        </Spring>
-        <Spring
-          from={{ opacity: 0, transform: "translate3d(100px,0,0)" }}
-          to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
-          config={{ delay: 3800 }}
         >
           {props => (
             <div style={props}>

@@ -3,6 +3,8 @@
   line-height: 35px;
   padding-top :15px;
   font-family: "cobolbold";
+  left:15px;
+  width:100%;
 }
 
 .main_container_footer a {
@@ -13,4 +15,12 @@
 
 .main_container_footer a:hover{
   font-size: 1.1rem;
+}
+
+@media screen and (max-width:490){
+.main_container_footer div{
+  line-height: 5px;
+  text-align:center;
+  padding-top:0px
+}
 }

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import ls from "local-storage";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -287,7 +287,7 @@ export class Arcade extends Component {
                     xs="2"
                     className={`map ${
                       this.state.started ? "onRunning" : [road.type]
-                    }`}
+                      }`}
                   >
                     {road.use === true && (
                       <FontAwesomeIcon
@@ -343,15 +343,15 @@ export class Arcade extends Component {
                 </button>
               </Col>
             ) : (
-              <Col xs="12" className="text-center">
-                <button
-                  className="back-button"
-                  onClick={() => this.startGame()}
-                >
-                  Démarrer le jeu
+                  <Col xs="12" className="text-center">
+                    <button
+                      className="back-button"
+                      onClick={() => this.startGame()}
+                    >
+                      Démarrer le jeu
                 </button>
-              </Col>
-            )}
+                  </Col>
+                )}
             <Col xs="12" className="text-center">
               {this.state.sec > 0 && (
                 <div style={{ fontFamily: "cobolbold" }}>
