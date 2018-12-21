@@ -17,7 +17,7 @@ export class Navbar extends Component {
             <div style={props}>
               <Link className="item_navbar my-3 py-1" to="/tableau-de-jeux">
                 <i className="fas fa-gamepad" /> Jouer
-              </Link>
+            </Link>
             </div>
           )}
         </Spring>
@@ -26,6 +26,34 @@ export class Navbar extends Component {
           from={{ opacity: 0, transform: "translate3d(100px,0,0)" }}
           to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
           config={{ delay: 3200 }}
+        >
+          {props => (
+            <div style={props}>
+              <Link className="item_navbar my-3 py-1" to="/connection">
+                <i className="fas fa-gamepad" /> Se connecter
+              </Link>
+            </div>
+          )}
+        </Spring>
+
+        <Spring
+          from={{ opacity: 0, transform: "translate3d(100px,0,0)" }}
+          to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+          config={{ delay: 3400 }}
+        >
+          {props => (
+            <div style={props}>
+              <Link className="item_navbar my-3 py-1" to="/inscription">
+                <i className="fas fa-gamepad" /> S'inscrire
+              </Link>
+            </div>
+          )}
+        </Spring>
+
+        <Spring
+          from={{ opacity: 0, transform: "translate3d(100px,0,0)" }}
+          to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
+          config={{ delay: 3600 }}
         >
           {props => (
             <div style={props}>
@@ -38,11 +66,11 @@ export class Navbar extends Component {
         <Spring
           from={{ opacity: 0, transform: "translate3d(100px,0,0)" }}
           to={{ opacity: 1, transform: "translate3d(0px,0,0)" }}
-          config={{ delay: 3400 }}
+          config={{ delay: 3800 }}
         >
           {props => (
             <div style={props}>
-              <Link className="item_navbar my-3 py-1" to="/ranking">
+              <Link className="item_navbar my-3 py-1" to="/tableau-des-scores">
                 <i className="fas fa-trophy" /> Classement
               </Link>
             </div>

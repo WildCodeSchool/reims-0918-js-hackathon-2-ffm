@@ -12,6 +12,7 @@ import SignUp from "./components/SignUp";
 import Memory from "./components/memory/Memory";
 import PumpItUp from "./components/PumpItUp";
 import FindWords from "./components/FindWords";
+import Ranking from "./components/Ranking";
 import WebcamGame from "./components/Webcam";
 import FlashMessage from "./components/FlashMessage";
 
@@ -44,17 +45,18 @@ class App extends Component {
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-arcade" component={Arcade} />
           <Route
-            path="/signin"
+            path="/connexion"
             render={() => <SignIn setFlashMessage={this.setFlashMessage} />}
           />
           <Route
-            path="/signup"
+            path="/inscription"
             render={() => <SignUp setFlashMessage={this.setFlashMessage} />}
           />
-          <Route path="/memory" component={Memory} />
+          <Route path="/jeu-memory" component={Memory} />
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-pump-it-up" component={PumpItUp} />
           <Route path="/jeu-trouver-saint-ex" component={FindWords} />
+          <Route path="/tableau-des-scores" component={Ranking} />
           <Route path="/jeu-webcam" component={WebcamGame} />
         </Switch>
         {this.state.flashMessage.open && (
