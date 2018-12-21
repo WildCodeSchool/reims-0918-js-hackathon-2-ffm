@@ -101,6 +101,40 @@ app.put(
   }
 );
 
+app.get("/webcam", (req, res) => {
+  connection.query("SELECT * FROM screenshots", function(
+    error,
+    results,
+    fields
+  ) {
+    if (error) {
+      res.status(500).json({ flash: error.message });
+    }
+    res.status(200).json({
+      screenshots: results
+    });
+  });
+});
+
+app.post("/webcam", (req, res) => {
+  connection.query(
+    "INSERT INTO screenshots(url, date) VALUES(?,?)",
+    [req.body.url, req.body.date],
+    function(error, results, fields) {
+      if (error) {
+        res.status(500).json({ flash: error.message });
+      } else {
+        res.status(200).json({
+          flashMessage: {
+            message: "Votre photo a bien été enregistrée",
+            type: "success"
+          }
+        });
+      }
+    }
+  );
+});
+
 app.listen(port, err => {
   if (err) {
     throw new Error("Something bad happened ...");
