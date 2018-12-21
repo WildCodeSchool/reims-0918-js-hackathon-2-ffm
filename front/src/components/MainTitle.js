@@ -11,6 +11,7 @@ const MainTitle = () => {
         display: "flex",
         alignItems: "center"
       }}
+      className="pattern"
     >
       <div className="main-title">
         <Link to={"/jeu-trouver-saint-ex"}>

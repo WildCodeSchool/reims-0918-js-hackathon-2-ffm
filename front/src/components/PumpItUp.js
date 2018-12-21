@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import "./RedButton.scss";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import ls from "local-storage";
 
 library.add(faClock);
 
@@ -46,6 +48,16 @@ class PumpItUp extends Component {
 
   stop() {
     clearInterval(this.interval);
+    axios.put(
+      "/score",
+      { game_name: "pumpItUp", score: `${this.state.sec}` },
+      {
+        headers: {
+          accept: "application/json",
+          authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+        }
+      }
+    );
   }
 
   deflateBalloion() {
@@ -79,7 +91,7 @@ class PumpItUp extends Component {
         <Link className="back-button" to="/tableau-de-jeux">
           Retour
         </Link>
-        <Row style={{ height: "50vh" }}>
+        <Row style={{ height: "37vh" }}>
           <Col
             xs={{ size: "10", offset: "1" }}
             sm={{ size: "8", offset: "2" }}
@@ -166,8 +178,7 @@ class PumpItUp extends Component {
             {countDown > 0 && (
               <div>
                 <strong>
-                  Temps restant
-                  <br />
+                  Temps restant {"  "}
                   <FontAwesomeIcon icon="clock" /> {countDown}''
                 </strong>
               </div>

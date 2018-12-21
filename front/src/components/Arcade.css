@@ -1,0 +1,31 @@
+.block {
+  background: url("../img/briques.jpeg");
+}
+.route {
+  background: url("../img/dirt.jpg");
+}
+.start {
+  background-color: blue;
+}
+.end {
+  background-color: green;
+}
+.onRunning {
+  background-color: black;
+}
+.map {
+  height: 15vw;
+  width: 15vw;
+}
+@media screen and (min-width: 450px) and (max-width: 766px) {
+  .map {
+    height: 10vw;
+    width: 10vw;
+  }
+}
+@media screen and (min-width: 767px) {
+  .map {
+    height: 100px;
+    width: 100px;
+  }
+}

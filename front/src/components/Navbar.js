@@ -42,7 +42,7 @@ export class Navbar extends Component {
         >
           {props => (
             <div style={props}>
-              <Link className="item_navbar my-3 py-1" to="/ranking">
+              <Link className="item_navbar my-3 py-1" to="/tableau-des-scores">
                 <i className="fas fa-trophy" /> Classement
               </Link>
             </div>

@@ -2,9 +2,6 @@
   min-height: 100vh;
   background-color: #005f82;
   color: white;
-  background-position: bottom;
-  background-image: url("img/pattern.svg");
-  background-repeat: repeat-x;
 }
 
 @font-face {
@@ -70,4 +67,10 @@
   background: #fff;
   color: #ef914b;
   text-decoration: none;
+}
+
+.pattern {
+  background-position: bottom;
+  background-image: url("img/pattern.svg");
+  background-repeat: repeat-x;
 }
