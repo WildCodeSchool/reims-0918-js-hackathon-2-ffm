@@ -133,16 +133,18 @@ class Memory extends PureComponent {
 
   stop() {
     clearInterval(this.interval);
-    axios.put(
-      "/score",
-      { game_name: "memory", score: `${this.state.sec}` },
-      {
-        headers: {
-          accept: "application/json",
-          authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+    if (ls.get("jwt-saint-ex")) {
+      axios.put(
+        "/score",
+        { game_name: "memory", score: `${this.state.sec}` },
+        {
+          headers: {
+            accept: "application/json",
+            authorization: `Bearer ${ls.get("jwt-saint-ex")}`
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   render() {

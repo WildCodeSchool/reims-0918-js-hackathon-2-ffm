@@ -1,8 +1,19 @@
 .block {
-  background: url("../img/briques.jpeg");
+  /* background: url("../img/briques.jpeg"); */
+  background-color: black;
+  padding: 5px;
+}
+.inside_block {
+  background-color: black;
+  border: 2px solid #68fdff;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
 }
 .route {
-  background: url("../img/dirt.jpg");
+  /* background: url("../img/dirt.jpg"); */
+
+  background-color: black;
 }
 .start {
   background-color: blue;
