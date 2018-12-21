@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Webcam.css";
 import formatDate from "./formatDate";
 import Logo from "../img/logo-stex-web-black.svg";
+import WebcamSlider from "./WebcamSlider";
 
 class WebcamGame extends React.Component {
   constructor(props) {
@@ -35,9 +36,6 @@ class WebcamGame extends React.Component {
         <Link className="back-button" to="/tableau-de-jeux">
           Retour
         </Link>
-        <p style={{ fontFamily: "cobolbold", paddingLeft: "20px" }}>
-          Pensez à bien vous centrer dans l'image
-        </p>
         {this.state.screenshot === "init" ? (
           <div
             style={{
@@ -120,6 +118,7 @@ class WebcamGame extends React.Component {
                 Sauvegarder
               </button>
             </div>
+            <WebcamSlider />
           </Fragment>
         )}
       </Fragment>

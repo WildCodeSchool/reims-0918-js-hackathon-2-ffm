@@ -20,7 +20,8 @@
     "react-spring": "^7.2.1",
     "react-webcam": "^1.0.4",
     "reactstrap": "^6.5.0",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
