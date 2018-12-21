@@ -19,7 +19,7 @@ export default [
     rules:
       "Sur la prochaine page, 14 cartes seront retournés. Le principe est de retrouver les paires de carte qui représente les icônes qui viennent d'être présentés.",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 400,
+    height: 300,
     link: "/memory"
   },
   {
@@ -29,7 +29,7 @@ export default [
     rules:
       "Ce jeu est basé sur le même principe, cliquez le plus rapidement possible sur le bouton pour gonfler le ballon sans qu'il retombe à son était initial.",
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 400,
+    height: 300,
     link: "jeu-pump-it-up"
   },
   {
@@ -38,7 +38,15 @@ export default [
       "A Saint-Ex vous pourrez immortaliser votre venue en vous prenant en photo avec un dispositif Raspberry Pi. Immortalisez à votre tour votre visite sur notre site :)",
 
     css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    height: 400,
+    height: 300,
     link: "jeu-webcam"
+  },
+  {
+    name: "FindTheEscape",
+    description: "Jeu d'arcade inspiré de la borne d'arcade du Labo Machine.",
+
+    css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+    height: 300,
+    link: "jeu-arcade"
   }
 ];

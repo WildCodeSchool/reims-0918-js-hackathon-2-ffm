@@ -4,10 +4,12 @@ import axios from "axios";
 import ls from "local-storage";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRunning } from "@fortawesome/free-solid-svg-icons";
-
+import { faRunning, faClock } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import "./Arcade.css";
 library.add(faRunning);
+
+library.add(faClock);
 
 export class Arcade extends Component {
   constructor() {
@@ -182,8 +184,36 @@ export class Arcade extends Component {
   }
 
   startGame() {
-    this.setState({ started: true });
+    this.setState({ started: true, sec: 10 });
     this.countdown();
+  }
+
+  restartGame() {
+    this.setState({
+      started: false,
+      win: false,
+      sec: 10,
+      way_easy: [
+        { index: 0, type: "start", use: true },
+        { index: 1, type: "block", use: false },
+        { index: 2, type: "route", use: false },
+        { index: 3, type: "route", use: false },
+        { index: 4, type: "route", use: false },
+        { index: 5, type: "block", use: false },
+        { index: 6, type: "route", use: false },
+        { index: 7, type: "block", use: false },
+        { index: 8, type: "route", use: false },
+        { index: 9, type: "block", use: false },
+        { index: 10, type: "route", use: false },
+        { index: 11, type: "block", use: false },
+        { index: 12, type: "route", use: false },
+        { index: 13, type: "route", use: false },
+        { index: 14, type: "route", use: false },
+        { index: 15, type: "block", use: false },
+        { index: 16, type: "route", use: false },
+        { index: 17, type: "end", use: false }
+      ]
+    });
   }
 
   countdown() {
@@ -200,7 +230,9 @@ export class Arcade extends Component {
     };
     diff -= 1;
     timeLeft.sec = diff;
-    if (diff === 0) {
+    if (diff < 0) {
+      this.stop();
+    } else if (diff === 0) {
       this.stop();
     }
     return timeLeft;
@@ -228,7 +260,10 @@ export class Arcade extends Component {
   render() {
     return (
       <div>
-        Arcade
+        <h2 className="activity-title">#FindTheEscape!</h2>
+        <Link className="back-button" to="/tableau-de-jeux">
+          Retour
+        </Link>
         <Container fluid>
           {this.state.win && (
             <Row>
@@ -251,26 +286,11 @@ export class Arcade extends Component {
                       this.state.started ? "onRunning" : [road.type]
                     }`}
                   >
-                    {road.type === "block" ? (
-                      <div className="inside_block">
-                        <Fragment>
-                          {road.use === true && (
-                            <FontAwesomeIcon
-                              style={{ fontSize: "45px" }}
-                              icon="running"
-                            />
-                          )}
-                        </Fragment>
-                      </div>
-                    ) : (
-                      <Fragment>
-                        {road.use === true && (
-                          <FontAwesomeIcon
-                            style={{ fontSize: "45px" }}
-                            icon="running"
-                          />
-                        )}
-                      </Fragment>
+                    {road.use === true && (
+                      <FontAwesomeIcon
+                        style={{ fontSize: "45px" }}
+                        icon="running"
+                      />
                     )}
                   </Col>
                 ))}
@@ -292,6 +312,10 @@ export class Arcade extends Component {
                   <Button onClick={() => this.moveRight()}>Right</Button>
                 </Col>
               </Fragment>
+            ) : this.state.win ? (
+              <Col xs="12" className="text-center">
+                <Button onClick={() => this.restartGame()}>Rejouer</Button>
+              </Col>
             ) : (
               <Col xs="12" className="text-center">
                 <Button onClick={() => this.startGame()}>
@@ -302,7 +326,10 @@ export class Arcade extends Component {
             <Col xs="12" className="text-center">
               {this.state.sec > 0 && (
                 <div>
-                  <strong>{this.state.sec}</strong>
+                  <strong>
+                    Temps restant {"  "}
+                    <FontAwesomeIcon icon="clock" /> {this.state.sec}''
+                  </strong>
                 </div>
               )}
               {this.state.sec === 0 && <p>Fin</p>}
