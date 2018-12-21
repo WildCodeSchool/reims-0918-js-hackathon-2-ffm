@@ -7,21 +7,21 @@ let SignUpForm = props => {
   const { handleSubmit } = props
   return <form onSubmit={handleSubmit}>
 
-    <div class="form-group">
+    <div className="form-group">
       <label htmlFor="email">Email</label>
-      <Field name="email" class="form-control" component="input" type="email" aria-describedby="emailHelp" placeholder="nom@exemple.com"></Field>
+      <Field name="email" className="form-control" component="input" type="email" aria-describedby="emailHelp" placeholder="nom@exemple.com"></Field>
     </div>
-    <div class="form-group">
+    <div className="form-group">
       <label htmlFor="email">Email</label>
-      <Field name="username" component="input" class="form-control" aria-describedby="pseudoHelp" placeholder="Pseudo" type="text"></Field>
+      <Field name="username" component="input" className="form-control" aria-describedby="pseudoHelp" placeholder="Pseudo" type="text"></Field>
     </div>
-    <div class="form-group">
+    <div className="form-group">
       <label htmlFor="password">Mot de passe</label>
-      <Field name="password" class="form-control" placeholder="Password" component="input" type="password"></Field>
+      <Field name="password" className="form-control" placeholder="Password" component="input" type="password"></Field>
     </div>
-    <div class="form-group">
+    <div className="form-group">
       <label htmlFor="passwordVerif">Mot de passe</label>
-      <Field name="passwordVerif" class="form-control" placeholder="vérification du Password" component="input" type="password"></Field>
+      <Field name="passwordVerif" className="form-control" placeholder="vérification du Password" component="input" type="password"></Field>
     </div>
     <div className="d-flex justify-content-center">
       <button className="btn" type="submit">S'inscrire</button>
