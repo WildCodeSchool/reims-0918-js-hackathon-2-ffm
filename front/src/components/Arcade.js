@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import axios from "axios";
 import ls from "local-storage";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -340,19 +340,19 @@ export class Arcade extends Component {
                     className="back-button"
                     onClick={() => this.moveLeft()}
                   >
-                    <i class="fas fa-long-arrow-alt-left" /> Left
+                    <i className="fas fa-long-arrow-alt-left" /> Left
                   </button>
                 </Col>
                 <Col xs="4" className="text-center">
                   <button className="back-button" onClick={() => this.moveUp()}>
-                    Up <i class="fas fa-long-arrow-alt-up" />
+                    Up <i className="fas fa-long-arrow-alt-up" />
                   </button>
                   <br />
                   <button
                     className="back-button"
                     onClick={() => this.moveDown()}
                   >
-                    Down <i class="fas fa-long-arrow-alt-down" />
+                    Down <i className="fas fa-long-arrow-alt-down" />
                   </button>
                 </Col>
                 <Col xs="4" className="text-center">
@@ -360,7 +360,7 @@ export class Arcade extends Component {
                     className="back-button"
                     onClick={() => this.moveRight()}
                   >
-                    Right <i class="fas fa-long-arrow-alt-right" />
+                    Right <i className="fas fa-long-arrow-alt-right" />
                   </button>
                 </Col>
               </Fragment>
