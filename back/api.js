@@ -1,22 +1,10 @@
-require("dotenv").config();
 const express = require("express");
 const connection = require("./conf");
 const app = express();
-const port = 3030;
 const passport = require("passport");
 const bddQuery = require("./functions/bddQuery");
 require("./passport-strategy");
-
-const cors = require("cors");
-
-app.use(cors());
-
 const jwt = require("jsonwebtoken");
-
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 app.get("/users", function(req, res, next) {
   connection.query("SELECT * FROM users", function(error, results) {
@@ -27,7 +15,6 @@ app.get("/users", function(req, res, next) {
     }
   });
 });
-
 app.post("/signup", function(req, res, next) {
   // let hash = bcrypt.hashSync(req.body.password, 10)
   connection.query(
@@ -51,10 +38,10 @@ app.post("/signup", function(req, res, next) {
 app.post("/signin", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) {
-      console.log("test");
       return res.status(500).send(err);
     }
     if (!user) {
+      console.log("test");
       return res.status(400).json({ message: info.message });
     }
     const token = jwt.sign(user, "your_jwt_secret");
@@ -148,10 +135,4 @@ app.get("/classement", async (req, res) => {
   }));
   res.json(response);
 });
-
-app.listen(port, err => {
-  if (err) {
-    throw new Error("Something bad happened ...");
-  }
-  console.log(`Server listened on ${port}`);
-});
+module.exports = app;
