@@ -137,7 +137,7 @@ class Memory extends PureComponent {
     clearInterval(this.interval);
     if (ls.get("jwt-saint-ex")) {
       axios.put(
-        "/score",
+        "/api/score",
         { game_name: "memory", score: `${this.state.sec}` },
         {
           headers: {

@@ -51,7 +51,7 @@ class PumpItUp extends Component {
     clearInterval(this.interval);
     if (ls.get("jwt-saint-ex")) {
       axios.put(
-        "/score",
+        "/api/score",
         { game_name: "pumpItUp", score: `${this.state.sec}` },
         {
           headers: {

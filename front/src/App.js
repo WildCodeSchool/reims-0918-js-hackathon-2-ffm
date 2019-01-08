@@ -14,6 +14,7 @@ import FindWords from "./components/FindWords";
 import Ranking from "./components/Ranking";
 import WebcamGame from "./components/Webcam";
 import FlashMessage from "./components/FlashMessage";
+import Deconnection from "./components/Deconnection";
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class App extends Component {
     };
     this.setFlashMessage = this.setFlashMessage.bind(this);
     this.closeFlashMessage = this.closeFlashMessage.bind(this);
+    this.reloadApp = this.reloadApp.bind(this);
   }
 
   setFlashMessage = flashMessage => {
@@ -36,11 +38,23 @@ class App extends Component {
   closeFlashMessage = () => {
     this.setState({ flashMessage: { message: "", type: "", open: false } });
   };
+  reloadApp() {
+    this.forceUpdate();
+  }
   render() {
     return (
       <Container fluid className="App position-relative">
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Home
+                reloadApp={this.reloadApp}
+                setFlashMessage={this.setFlashMessage}
+              />
+            )}
+          />
           <Route path="/tableau-de-jeux" component={Dashboard} />
           <Route path="/jeu-arcade" component={Arcade} />
           <Route
@@ -57,6 +71,7 @@ class App extends Component {
           <Route path="/jeu-trouver-saint-ex" component={FindWords} />
           <Route path="/tableau-des-scores" component={Ranking} />
           <Route path="/jeu-webcam" component={WebcamGame} />
+          <Route path="/deconnection" component={Deconnection} />
         </Switch>
         {this.state.flashMessage.open && (
           <FlashMessage

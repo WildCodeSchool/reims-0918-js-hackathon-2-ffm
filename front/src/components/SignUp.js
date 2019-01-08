@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 
 class SignUp extends Component {
   submit = values => {
-    axios.post("/signup", values).then(results => {
+    axios.post("/api/signup", values).then(results => {
       if (results) {
         ls.set("jwt-saint-ex", results.data.token);
         this.props.setFlashMessage(results.data.flashMessage);

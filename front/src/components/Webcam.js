@@ -19,7 +19,7 @@ class WebcamGame extends React.Component {
   }
 
   getScreenshots = () => {
-    axios.get("/webcam").then(res => {
+    axios.get("/api/webcam").then(res => {
       this.setState({ screenshots: res.data.screenshots });
     });
   };
@@ -41,7 +41,7 @@ class WebcamGame extends React.Component {
 
   save = () => {
     axios.post(
-      "/webcam",
+      "/api/webcam",
       {
         url: this.state.screenshot,
         date: this.state.date

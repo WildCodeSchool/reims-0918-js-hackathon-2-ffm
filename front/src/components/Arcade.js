@@ -249,7 +249,7 @@ export class Arcade extends Component {
     clearInterval(this.interval);
     if (ls.get("jwt-saint-ex")) {
       axios.put(
-        "/score",
+        "/api/score",
         { game_name: "arcade", score: `${this.state.sec}` },
         {
           headers: {

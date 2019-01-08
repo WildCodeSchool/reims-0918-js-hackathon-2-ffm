@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar as NavMenu } from "./Navbar";
+import NavMenu from "./NavMenu";
 import MainTitle from "./MainTitle";
 import { Collapse, Navbar, NavbarToggler } from "reactstrap";
 import Footer from "./Footer";
@@ -32,7 +32,11 @@ export class Home extends Component {
             <i className="fas text-white fa-bars" />
           </NavbarToggler>
           <Collapse isOpen={!this.state.collapsed} navbar>
-            <NavMenu />
+            <NavMenu
+              setFlashMessage={this.props.setFlashMessage}
+              toggleNavbar={this.toggleNavbar}
+              reloadApp={this.props.reloadApp}
+            />
           </Collapse>
         </Navbar>
 
